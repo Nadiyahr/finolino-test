@@ -1,23 +1,42 @@
 <template>
-  <header class="header">
+  <header class="u-bg-dark">
     <nav>
-      <div>
-        <button></button>
-        <button></button>
-        <svg class="header__brand">
-          <use
-            href="/src/assets/icons/icons_list.svg#finolono"
-            width="45"
-            height="44"
-            viewBox="0 0 45 44"
-          ></use>
-        </svg>
-        <div>
-        <button></button>
-        <button></button>
-        <button></button>
-        <button></button>
+      <div class="u-flex u-jsfy-btwn u-py-2">
+        <div class="u-flex">
+          <button class="u-bg-dark u-color-ligt u-w-fit c-button-header">
+          Man
+          <svg class="icon-chevron">
+            <use
+              href="/src/assets/icons/icon_list.svg#chevron-down"
+              width="12"
+              height="12"
+              viewBox="0 0 16 16"
+            ></use>
+          </svg>
+        </button>
+          <button class="u-bg-dark u-color-ligt u-w-fit c-button-header">
+          Woman
+          <svg class="icon-chevron">
+            <use
+              href="/src/assets/icons/icon_list.svg#chevron-down"
+              width="12"
+              height="12"
+              viewBox="0 0 16 16"
+            ></use>
+          </svg>
+        </button>
         </div>
+        <div class="u-w-fit u-my-auto u-pointer">
+          <svg class="logo">
+            <use
+              href="/src/assets/icons/icon_list.svg#finolino"
+              width="300"
+              height="50"
+              viewBox="0 0 300 50"
+            ></use>
+          </svg>
+        </div>
+        <IconButtonGroup :icons="icons" />
       </div>
     </nav>
     <Portal target="#breadcrumbs-target" />
@@ -26,8 +45,29 @@
   </header>
 </template>
 
+<script setup lang="ts">
+import IconButtonGroup from './IconButtonGroup.vue';
+
+const icons = ['search', 'heart', 'profile', 'cart']
+</script>
+
 <style scoped lang="scss">
-.header {
-  background-color: $bg-black;
+.nav {
+  /* background-color: $bl; */
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.25rem 0;
+    align-items: center;
+  }
+
+  &__items {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+  }
 }
+
+
 </style>
