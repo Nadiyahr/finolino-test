@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,500&family=Roboto:wght@400;700&display=swap');
+
+$font-body: 'Poppins', sans-serif;
+
+$base-fs: 16px;
+$letter-spacing: 0.01em;
+
+$fs-sm: calc($base-fs / 2);
+$fs-md: $base-fs * 1.5;
+$fs-xm: $base-fs * 1.75;
+$fs-lg: $base-fs * 2;
+$fs-xl: $base-fs * 3;
+
+$fw-8: 800;
+$fw-7: 700;
+$fw-6: 600;
+$fw-5: 500;
+$fw-4: 400;

@@ -1,0 +1,192 @@
+.u-clearfix {
+  @include clearfix
+}
+
+.u-text-upper {
+  text-transform: uppercase;
+}
+
+.u-text-r {
+  text-align: right !important;
+}
+
+.u-color-dark {
+  color: $primary;
+}
+
+.u-color-gray {
+  color: $secondary;
+}
+
+.u-color-info {
+  color: $info;
+}
+
+.u-color-ligt {
+  color: $text-white;
+}
+
+.u-color-card {
+  color: $text-card;
+}
+
+.u-bg-btn {
+  background-color: $button;
+}
+
+.u-bg-trasp {
+  background-color: $bg-trasp;
+}
+
+.u-bg-dark {
+  background-color: $primary;
+}
+
+.u-bg-ligt {
+  background-color: $secondary;
+}
+
+.u-bg-dark-img {
+  @include bg-img;
+  background-color: $primary;
+}
+
+.u-bg-ligt-img {
+  @include bg-img;
+  background-color: $secondary;
+}
+
+.u-bg-img-combine {
+  @include bg-two-img;
+}
+
+.u-radius-lt {
+  border-top-left-radius: 20px;
+}
+
+.u-radius-lt {
+  border-top-left-radius: 50px;
+}
+
+.u-radius-lb {
+  border-bottom-left-radius: 50px;
+}
+
+.u-flex {
+  display: flex;
+}
+
+.u-jsfy-btwn {
+  justify-content: space-between;
+}
+
+.u-w-fit {
+  max-width: fit-content;
+}
+
+.u-w-100 {
+  width: 100%;
+}
+
+.u-h-100 {
+  height: 100vh;
+}
+
+.u-h-110 {
+  height: 110vh;
+}
+
+.u-py-2 {
+  padding: 4px 0;
+}
+
+.u-mb-center {
+  text-align: center;
+  @include onTablet {
+    text-align: start;
+  }
+}
+
+.u-mb-m-auto {
+  margin: 0 auto;
+
+  @include onTablet {
+    margin: auto 0;
+  }
+}
+
+.u-mt-8 {
+  margin-top: $spacing-sm;
+}
+
+.u-pb-5 {
+  padding-bottom: $spacing-xl;
+}
+
+.u-ml-5 {
+  margin-left: 5%;
+}
+
+.u-fw-light {
+  font-weight: $fw-4;
+}
+
+.u-my-auto {
+  margin: 4xp 0;
+}
+
+.u-pointer {
+  cursor: pointer;
+}
+
+.u-w-50 {
+  width: 50%;
+  height: 100%;
+}
+
+.u-w-30 {
+  width: 30%;;
+}
+
+.u-fs-xs {
+  font-size: 12px;
+}
+
+h1 {
+  font-weight: $fw-7;
+  font-size: $fs-xl;
+  line-height: $fs-xl;
+}
+
+h2 {
+  font-weight: $fw-6;
+  font-size: $fs-xl;
+  line-height: 96px;
+  letter-spacing: -2.7px;
+}
+
+h3 {
+  font-weight: $fw-8;
+  font-size: $fs-xl;
+  line-height: $fs-xl;
+}
+
+h4 {
+  font-weight: $fw-7;
+  font-size: $fs-md;
+  line-height: $fs-xm;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+h5 {
+  font-weight: $fw-8;
+  font-size: $fs-md;
+  line-height: $fs-lg;
+}
+
+h6 {
+  font-weight: $fw-5;
+  font-size: $fs-md;
+  line-height: 34px;
+}

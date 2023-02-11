@@ -1,0 +1,104 @@
+.c-button-top {
+  width: 24vw;
+  height: 12vh;
+  border: 4px solid $white;
+  border-top-right-radius: 50px;
+  background-color: #d7985a80;
+  color: $white;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 36px;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.c-m-h1 {
+  padding-bottom: 2rem;
+  letter-spacing: -2.7px;
+}
+
+.c-top-container {
+  padding-top: 37vh;
+  padding-left: 12%;
+}
+
+.c-button-header {
+  font-size: $base-fs;
+  line-height: $base-fs;
+  letter-spacing: -1px;
+  text-transform: uppercase;
+  height: fit-content;
+  padding: 4px 8px;
+  border: none;
+  margin: auto 2px;
+}
+
+.c-man {
+  @include half-container('@/assets/images/man.png');
+}
+
+.c-woman {
+  @include half-container('@/assets/images/woman.png');
+}
+
+.c-label {
+  @include description-trasparent;
+  width: 100vw;
+  letter-spacing: -2.7px;
+
+  @include onTablet {
+    width: 50vw;
+  }
+}
+
+.c-footer {
+  width: 100vw;
+  height: 40vh;
+  padding-top: $spacing-lg;
+  background-color: $black;
+
+  &__logo {
+    padding-bottom: $spacing-sm;
+    @include onDesktop {
+      padding-bottom: $spacing-xl;
+    }
+  }
+}
+
+.c-fotter-list {
+  &__title {
+    margin: $spacing-md 0;
+    letter-spacing: -1px;
+  }
+
+  &__item {
+    padding-bottom: 18px;
+    cursor: pointer;
+  }
+}
+
+.icon {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+}
+
+.logo {
+  display: inline-block;
+  width: 150px;
+  height: 24px;
+  margin: 0 auto;
+  
+  @include onTablet {
+    width: 300px;
+    height: 50px;
+  }
+}
+
+.icon-chevron {
+  display: inline-block;
+  width: 20px;
+  height: 10px;
+  margin: 0 8px;
+}
+

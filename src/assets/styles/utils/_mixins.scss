@@ -6,3 +6,90 @@
   letter-spacing: 0.04em;
   text-transform: uppercase;
 }
+
+@mixin font ($size, $weight, $lineH, $color) {
+  font-size: $size;
+  font-weight: $weight;
+  line-height: $lineH;
+  color: $color;
+}
+
+@mixin clearfix {
+  &::after {
+    content: "";
+    display: block;
+    clear:  both;
+  }
+}
+
+@mixin hiden-visualy {
+  border: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+@mixin bg-img {
+  background-image: url('../LETTERS.svg');
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: 100%;
+
+}
+
+@mixin bg-two-img {
+  background-image: url('@/assets/icons/o.svg'), url('@/assets/icons/f.svg'), url('@/assets/icons/l.svg'), url('@/assets/images/top.png');
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+  background-position: 0 -12%, 0 107%, 100% 1%, 0 0;
+  background-size: 444px, 660px, 322px, 100% 100%;
+}
+
+@mixin container {
+  margin: 0 auto;
+  max-width: 1280px;
+  padding: 0 20px;
+}
+
+@mixin half-container($img) {
+  position: relative;
+  width: 100vw;
+  height: 100vw;
+  display: block;
+  background-image: url($img);
+  background-repeat: no-repeat;
+  background-size: cover;
+  cursor: pointer;
+
+  @include onTablet() {
+    width: 50%;
+    height: 100%;
+    display: inline-block;
+  }
+}
+
+@mixin description-trasparent {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 100px;
+  background-color: $bg-trasp;
+  text-align: center;
+}
+
+@mixin onTablet {
+  @media (min-width: 768px) and (max-width: 1023px) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
