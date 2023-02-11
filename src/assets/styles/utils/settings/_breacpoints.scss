@@ -1,0 +1,17 @@
+$mobile: 320px;
+$phablet: 640px;
+$tablet: 768px;
+$laptop: 980px;
+$desktop:120px;
+$large: 1920px;
+
+$breakpoints: (
+  xs: $mobile,
+  sm: $phablet,
+  md: $tablet,
+  sl: $laptop,
+  lg: $desktop,
+  xl: $large
+);
+
+$mq-breakpoints: $breakpoints !default;
