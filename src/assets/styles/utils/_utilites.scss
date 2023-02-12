@@ -102,7 +102,7 @@
 
 .u-mb-center {
   text-align: center;
-  @include onTablet {
+  @include moreThanTablet {
     text-align: start;
   }
 }
@@ -110,7 +110,7 @@
 .u-mb-m-auto {
   margin: 0 auto;
 
-  @include onTablet {
+  @include moreThanTablet {
     margin: auto 0;
   }
 }

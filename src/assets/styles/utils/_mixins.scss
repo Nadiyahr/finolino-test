@@ -66,7 +66,7 @@
   background-size: cover;
   cursor: pointer;
 
-  @include onTablet() {
+  @include moreThanTablet {
     width: 50%;
     height: 100%;
     display: inline-block;
@@ -90,6 +90,12 @@
 
 @mixin onDesktop {
   @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin moreThanTablet {
+  @media (min-width: 768px) {
     @content;
   }
 }

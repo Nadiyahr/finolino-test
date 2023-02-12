@@ -40,7 +40,7 @@ section,
 footer {
   padding: 0 20px;
 
-  @include onTablet {
+  @include moreThanTablet {
     padding: 0 12%;
   }
 }

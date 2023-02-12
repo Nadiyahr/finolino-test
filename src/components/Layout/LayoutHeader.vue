@@ -50,24 +50,3 @@ import IconButtonGroup from './IconButtonGroup.vue';
 
 const icons = ['search', 'heart', 'profile', 'cart']
 </script>
-
-<style scoped lang="scss">
-.nav {
-  /* background-color: $bl; */
-  &__content {
-    display: flex;
-    justify-content: space-between;
-    padding: 1.25rem 0;
-    align-items: center;
-  }
-
-  &__items {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    list-style: none;
-  }
-}
-
-
-</style>
