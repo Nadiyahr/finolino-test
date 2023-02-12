@@ -11,11 +11,11 @@
         <FooterList v-else title="About" :list="about" />
       </div>
       <div class="grid__item grid__item--tablet-4-8 grid__item--desktop-8-9">
-        <h6 v-if="isMobile">Privacy policy</h6>
+        <h6 v-if="isMobile" >Privacy policy</h6>
          <FooterList v-else title="Help" :list="help" />
       </div>
       <div class="grid__item grid__item--tablet-8-12 grid__item--desktop-10-12">
-        <h6 v-if="isMobile">FAQs</h6>
+        <h6 v-if="isMobile"  class="u-pb-5">FAQs</h6>
         <FooterList v-else title="Contacts" :list="contacts" />
         <IconButtonGroup v-if="isMobile" :icons="icons" class="u-w-30 u-mb-m-auto" />
       </div>

@@ -1,25 +1,48 @@
 .c-button-top {
-  width: 24vw;
-  height: 12vh;
+  width: 90%;
+  height: 8vh;
   border: 4px solid $white;
   border-top-right-radius: 50px;
-  background-color: #d7985a80;
+  background-color: transparent;
   color: $white;
   font-weight: 600;
   font-size: 24px;
   line-height: 36px;
   letter-spacing: 0;
   text-transform: uppercase;
+  @include moreThanTablet {
+    width: 24vw;
+    height: 12vh;
+    background-color: #d7985a80;
+  }
+}
+
+.c-bg-img-combine {
+  width: 100vw;
+  height: 100vh;
+  @include bg-two-img;
+
+  @include moreThanTablet {
+    height: 110vh;
+  }
 }
 
 .c-m-h1 {
   padding-bottom: 2rem;
-  letter-spacing: -2.7px;
+  letter-spacing: -2px;
+
+  @include moreThanTablet {
+    letter-spacing: -2.7px;
+  }
 }
 
 .c-top-container {
-  padding-top: 37vh;
-  padding-left: 12%;
+  width: 100%;
+  padding-top: 70vh;
+  @include moreThanTablet {
+    padding-top: 50vh;
+    padding-left: 12%;
+  }
 }
 
 .c-button-header {
@@ -53,12 +76,15 @@
 
 .c-footer {
   width: 100vw;
-  height: 40vh;
+  height: 50vh;
   padding-top: $spacing-lg;
   background-color: $black;
 
+  @include moreThanTablet {
+    height: 40vh;
+  }
+
   &__logo {
-    padding-bottom: $spacing-sm;
     @include moreThanTablet {
       padding-bottom: $spacing-xl;
     }
@@ -88,7 +114,7 @@
   width: 150px;
   height: 24px;
   margin: 0 auto;
-  
+
   @include moreThanTablet {
     width: 300px;
     height: 50px;
@@ -102,3 +128,35 @@
   margin: 0 8px;
 }
 
+.c-mobile-menu {
+  position: absolute;
+  top: 55px;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  padding: 20px;
+  background-color: inherit;
+}
+
+.c-input {
+  &__container {
+    display: flex;
+    border: 1px solid $white;
+    margin-bottom: $spacing-lg;
+
+    @include moreThanTablet {
+      width: 300px;
+      margin-bottom: $spacing-sm;
+    }
+  }
+
+  &__input {
+    width: 90%;
+    height: 40px;
+    padding-left: $spacing-lg;
+    border: none;
+    border-right: 1px solid $white;
+    background-color: inherit;
+  }
+
+}

@@ -1,3 +1,11 @@
+.u-relative {
+  position: relative;
+}
+
+.u-inline-block {
+  display: inline-block;
+}
+
 .u-clearfix {
   @include clearfix
 }
@@ -56,10 +64,6 @@
   background-color: $secondary;
 }
 
-.u-bg-img-combine {
-  @include bg-two-img;
-}
-
 .u-radius-lt {
   border-top-left-radius: 20px;
 }
@@ -97,7 +101,7 @@
 }
 
 .u-py-2 {
-  padding: 4px 0;
+  padding: 4px 0 8px 0;
 }
 
 .u-mb-center {
@@ -132,7 +136,7 @@
 }
 
 .u-my-auto {
-  margin: 4xp 0;
+  margin: auto 0;
 }
 
 .u-pointer {
@@ -189,4 +193,5 @@ h6 {
   font-weight: $fw-5;
   font-size: $fs-md;
   line-height: 34px;
+  padding-bottom: 6px;
 }

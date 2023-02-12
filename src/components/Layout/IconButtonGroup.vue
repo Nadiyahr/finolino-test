@@ -1,6 +1,6 @@
 <template>
   <div class="u-flex u-jsfy-btwn">
-    <button v-for="(icon, i) in icons" :key="i" class="u-bg-dark c-button-header">
+    <button v-for="(icon, i) in icons" :key="i" @click="$emit(`toggle-${icon}`)" class="u-bg-dark c-button-header">
       <svg class="icon">
         <use
           :href="`/src/assets/icons/icon_list.svg#${icon}`"

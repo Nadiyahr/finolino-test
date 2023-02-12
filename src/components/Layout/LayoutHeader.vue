@@ -1,8 +1,8 @@
 <template>
-  <header class="u-bg-dark">
+  <header class="u-bg-dark u-relative">
     <nav>
       <div class="u-flex u-jsfy-btwn u-py-2">
-        <div class="u-flex">
+        <div v-if="isNotMobile" class="u-flex">
           <button class="u-bg-dark u-color-ligt u-w-fit c-button-header">
           Man
           <svg class="icon-chevron">
@@ -27,18 +27,13 @@
         </button>
         </div>
         <div class="u-w-fit u-my-auto u-pointer">
-          <svg class="logo">
-            <use
-              href="/src/assets/icons/icon_list.svg#finolino"
-              width="300"
-              height="50"
-              viewBox="0 0 300 50"
-            ></use>
-          </svg>
+          <Logo />
         </div>
-        <IconButtonGroup :icons="icons" />
+        <Search v-if="isNotMobile && openSearch" @toggle-search="toggleSearch" class="u-w-30 u-my-auto"/>
+        <IconButtonGroup v-if="isNotMobile && !openSearch" :icons="icons" @togle-menu="toggleMenu" @toggle-search="toggleSearch" />
       </div>
     </nav>
+    <MobileMenu v-if="isMobile"/>
     <Portal target="#breadcrumbs-target" />
     <Portal target="#title-target" />
     <Portal target="#filter-target" />
@@ -46,7 +41,21 @@
 </template>
 
 <script setup lang="ts">
+import { computed, ref } from 'vue';
+import breakpoints from '@/plugins/breakpoints';
+import Logo from './Logo.vue';
 import IconButtonGroup from './IconButtonGroup.vue';
+import Search from './components/Search.vue';
+import MobileMenu from './components/MobileMenu.vue';
 
-const icons = ['search', 'heart', 'profile', 'cart']
+const isNotMobile = breakpoints.greaterOrEqual('tablet')
+const isMobile = breakpoints.smaller('tablet')
+
+const openMobileMenu = ref(false)
+const openSearch = ref(false)
+
+const icons = computed(() => isMobile.value ? ['cart', 'profile', 'menu'] : ['search', 'heart', 'profile', 'cart'])
+
+const toggleMenu = () => openMobileMenu.value = !openMobileMenu.value
+const toggleSearch = () => openSearch.value = !openSearch.value
 </script>

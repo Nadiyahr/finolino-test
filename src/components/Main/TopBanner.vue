@@ -1,5 +1,5 @@
 <template>
-  <section class="u-bg-img-combine u-w-100 u-h-110">
+  <section class="c-bg-img-combine">
     <div>
       <div class="c-top-container">
         <h1 class="c-m-h1">New<br/>collection</h1>
