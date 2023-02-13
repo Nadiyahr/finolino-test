@@ -88,6 +88,10 @@
   max-width: fit-content;
 }
 
+.uh-fit {
+  min-height: fit-content;
+}
+
 .u-w-100 {
   width: 100%;
 }
@@ -111,8 +115,8 @@
   }
 }
 
-.u-mb-m-auto {
-  margin: 0 auto;
+.u-m-auto {
+  margin: 0 auto !important;
 
   @include moreThanTablet {
     margin: auto 0;

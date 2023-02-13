@@ -3,7 +3,7 @@
     <div class="grid grid--desktop u-mb-center">
       <div class="grid__item grid__item--tablet-1-12 grid__item--desktop-1-5 u-mb-center">
         <Logo class="c-footer__logo" />
-        <IconButtonGroup v-if="!isMobile" :icons="icons" class="u-w-30" />
+        <IconButtonGroup v-if="!isMobile" :icons="icons" />
         <p class="u-fw-light u-py-2 u-color-info u-fs-xs">&copy; {{ year }}. All rights reserved</p>
       </div>
       <div class="grid__item grid__item--tablet-1-4 grid__item--desktop-6-7">
@@ -17,8 +17,8 @@
       <div class="grid__item grid__item--tablet-8-12 grid__item--desktop-10-12">
         <h6 v-if="isMobile"  class="u-pb-5">FAQs</h6>
         <FooterList v-else title="Contacts" :list="contacts" />
-        <IconButtonGroup v-if="isMobile" :icons="icons" class="u-w-30 u-mb-m-auto" />
       </div>
+        <IconButtonGroup v-if="isMobile" :icons="icons" class="u-m-auto" />
     </div>
   </footer>
 </template>

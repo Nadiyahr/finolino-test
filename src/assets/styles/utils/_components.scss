@@ -10,6 +10,7 @@
   line-height: 36px;
   letter-spacing: 0;
   text-transform: uppercase;
+
   @include moreThanTablet {
     width: 24vw;
     height: 12vh;
@@ -46,14 +47,32 @@
 }
 
 .c-button-header {
-  font-size: $base-fs;
-  line-height: $base-fs;
+  width: 100%;
+  font-size: $fs-md;
+  line-height: $fs-md;
+  font-weight: $fw-6;
+  text-align: start;
   letter-spacing: -1px;
   text-transform: uppercase;
   height: fit-content;
-  padding: 4px 8px;
+  padding: 8px 20px;
+  padding-left: 0;
   border: none;
-  margin: auto 2px;
+  margin: auto 2px 8px;
+  background-image: url('icons/chevron-right-white.svg');
+  background-repeat: no-repeat;
+  background-position: 95% 50%;
+  background-size: 10px;
+
+  @include moreThanTablet {
+    font-size: $base-fs;
+    line-height: $base-fs;
+    width: fit-content;
+    margin: auto 2px;
+    padding: 4px 8px;
+    margin: auto 2px;
+    background-image: unset;
+  }
 }
 
 .c-man {
@@ -85,7 +104,9 @@
   }
 
   &__logo {
+    margin: auto;
     @include moreThanTablet {
+      margin: 0;
       padding-bottom: $spacing-xl;
     }
   }
@@ -105,14 +126,14 @@
 
 .icon {
   display: inline-block;
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 18px;
 }
 
 .logo {
   display: inline-block;
-  width: 150px;
-  height: 24px;
+  width: 200px;
+  height: 30px;
   margin: 0 auto;
 
   @include moreThanTablet {
@@ -133,14 +154,21 @@
   top: 55px;
   left: 0;
   width: 100vw;
-  height: 100vh;
+  height: 98vh;
   padding: 20px;
   background-color: inherit;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 100vw;
+  }
 }
 
 .c-input {
   &__container {
     display: flex;
+    align-items: center;
     border: 1px solid $white;
     margin-bottom: $spacing-lg;
 
@@ -159,4 +187,23 @@
     background-color: inherit;
   }
 
+}
+
+.c-icon {
+  &__container {
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    justify-content: space-between;
+    margin: auto 0;
+  }
+
+  &__button {
+    width: fit-content;
+    height: fit-content;
+    background-color: inherit;
+    padding: 10px;
+    padding-bottom: 4px;
+    border: none;
+  }
 }

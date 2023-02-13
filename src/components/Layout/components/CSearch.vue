@@ -6,7 +6,8 @@
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue';
 import IconButtonGroup from '../IconButtonGroup.vue';
 
-const data = ''
+const data = ref('')
 </script>
