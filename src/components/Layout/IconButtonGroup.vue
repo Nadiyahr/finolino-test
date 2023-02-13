@@ -3,7 +3,7 @@
     <button v-for="(icon, i) in icons" :key="i" @click="$emit(`toggle-${icon}`)" class="u-bg-dark c-button-header">
       <svg class="icon">
         <use
-          :href="`/src/assets/icons/icon_list.svg#${icon}`"
+          :href="`./icons/icon_list.svg#${icon}`"
           width="16"
           height="16"
           viewBox="0 0 16 16"

@@ -7,7 +7,7 @@
           Man
           <svg class="icon-chevron">
             <use
-              href="/src/assets/icons/icon_list.svg#chevron-down"
+              href="/icons/icon_list.svg#chevron-down"
               width="12"
               height="12"
               viewBox="0 0 16 16"
@@ -18,7 +18,7 @@
           Woman
           <svg class="icon-chevron">
             <use
-              href="/src/assets/icons/icon_list.svg#chevron-down"
+              href="/icons/icon_list.svg#chevron-down"
               width="12"
               height="12"
               viewBox="0 0 16 16"

@@ -2,7 +2,7 @@
   <div class="u-w-fit u-pointer u-py-2 u-mb-m-auto">
     <svg class="logo">
       <use
-        href="/src/assets/icons/icon_list.svg#finolino"
+        href="/icons/icon_list.svg#finolino"
         :width="logoWidth"
         :height="logoHeight"
         :viewBox="`0 0 ${logoWidth} ${logoHeight}`"

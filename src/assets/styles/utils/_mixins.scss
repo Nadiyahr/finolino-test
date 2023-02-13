@@ -50,7 +50,7 @@
   background-size: cover;
 
   @include moreThanTablet {
-    background-image: url('@/assets/icons/o.svg'), url('@/assets/icons/f.svg'), url('@/assets/icons/l.svg'), url('@/assets/images/top.png');
+    background-image: url('/icons/o.svg'), url('/icons/f.svg'), url('/icons/l.svg'), url('@/assets/images/top.png');
     background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
     background-position: 0 -12%, 0 107%, 100% 1%, 0 0;
     background-size: 444px, 660px, 322px, 100% 100%;
