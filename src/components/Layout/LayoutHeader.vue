@@ -1,6 +1,6 @@
 <template>
-  <header class="u-bg-dark u-relative">
-    <nav>
+  <header class="u-bg-dark">
+    <nav class="u-relative u-z-10 u-bg-dark">
       <div class="u-flex u-jsfy-btwn u-py-2">
         <div v-if="!isMobile" class="u-flex">
           <CButtonHeader name="Man" />
@@ -13,7 +13,9 @@
         <IconButtonGroup v-if="!openSearch" :icons="icons" @toggle-menu="toggleMenu" @toggle-cross="toggleMenu" @toggle-search="toggleSearch" />
       </div>
     </nav>
-    <MobileMenu v-if="isMobile && openMobileMenu"/>
+    <transition name="fade">
+      <MobileMenu v-if="isMobile && openMobileMenu" class="c-mobile-menu"/>
+    </transition>
     <Portal target="#breadcrumbs-target" />
     <Portal target="#title-target" />
     <Portal target="#filter-target" />
@@ -40,3 +42,28 @@ const icons = computed(() => isMobile.value ? ['cart', 'profile', menu.value] : 
 const toggleMenu = () => openMobileMenu.value = !openMobileMenu.value
 const toggleSearch = () => openSearch.value = !openSearch.value
 </script>
+
+<style scoped lang="scss">
+.fade-enter-from {
+  top: -92%;
+}
+
+.fade-enter-to {
+  top: 55px;
+}
+
+.fade-enter-active {
+  transition: all 2s ease;
+}
+
+.fade-leave-from {
+  top: 55px;
+}
+
+.fade-leave-to {
+  top: -92%;
+}
+.fade-leave-active {
+  transition: all 2s ease;
+}
+</style>
