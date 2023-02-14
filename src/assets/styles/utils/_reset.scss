@@ -40,7 +40,14 @@ section,
 footer {
   padding: 0 20px;
 
-  @include moreThanTablet {
+  // @include moreThanTablet {
+  //   padding: 0 12%;
+  // }
+  @include onTablet {
+    padding: 0 4%;
+  }
+
+  @include onDesktop {
     padding: 0 12%;
   }
 }
@@ -61,5 +68,17 @@ input {
   color: $white;
   &:focus-visible {
     outline: none;
+  }
+}
+
+button {
+  &:hover {
+    transform: scale(1.1);
+    transition: transform .5s ease-out;
+  }
+
+  &:disabled {
+    opacity: 0.8;
+    transform: none;
   }
 }

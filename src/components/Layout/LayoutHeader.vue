@@ -26,7 +26,7 @@
 import { computed, ref } from 'vue';
 import breakpoints from '@/plugins/breakpoints';
 import Logo from './Logo.vue';
-import IconButtonGroup from './IconButtonGroup.vue';
+import IconButtonGroup from './components/IconButtonGroup.vue';
 import CSearch from './components/CSearch.vue';
 import MobileMenu from './components/MobileMenu.vue';
 import CButtonHeader from './components/CButtonHeader.vue';

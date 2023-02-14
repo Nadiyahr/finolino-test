@@ -7,7 +7,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
-import IconButtonGroup from '../IconButtonGroup.vue';
+import IconButtonGroup from './IconButtonGroup.vue';
 
 const data = ref('')
 </script>

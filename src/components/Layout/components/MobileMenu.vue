@@ -16,7 +16,7 @@
 <script setup lang="ts">
 import CSearch from './CSearch.vue';
 import CButtonHeader from './CButtonHeader.vue';
-import FooterList from '../FooterList.vue';
+import FooterList from './FooterList.vue';
 
 const contacts = ['+11 (011) 111 11 11 ', '+22 (022) 222 22 22', 'finolino@finolino.com']
 

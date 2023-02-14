@@ -1,8 +1,9 @@
 .grid {
-  // display: grid;
-  // grid-template-columns: repeat(2, 1fr);
-  // grid-template-rows: 1fr;
-  // column-gap: 20px;
+    display: grid;
+    grid-auto-flow: dense;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 20px;
+    row-gap: 20px;
 
   @include onDesktop {
     grid-template-columns: repeat(12, 1fr);
@@ -13,7 +14,8 @@
     display: grid;
     grid-auto-flow: dense;
     grid-template-columns: repeat(6, 1fr);
-    column-gap: 20px;
+    column-gap: 40px;
+    row-gap: 40px;
   }
 
   &--desktop {
@@ -36,7 +38,8 @@
       display: grid;
       grid-auto-flow: dense;
       grid-template-columns: repeat(6, 1fr);
-      column-gap: 20px;
+      column-gap: 40px;
+      row-gap: 40xp;
     }
   }
 

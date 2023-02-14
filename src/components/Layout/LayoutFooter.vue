@@ -26,8 +26,8 @@
 <script setup lang="ts">
 import breakpoints from '@/plugins/breakpoints';
 import Logo from './Logo.vue';
-import IconButtonGroup from './IconButtonGroup.vue';
-import FooterList from './FooterList.vue';
+import IconButtonGroup from './components/IconButtonGroup.vue';
+import FooterList from './components/FooterList.vue';
 
 const isMobile = breakpoints.between('mobile', 'tablet')
 const icons = ['instagram', 'facebook', 'printerist']

@@ -99,6 +99,7 @@
     @include moreThanTablet {
       margin: 0;
       padding-bottom: $spacing-xl;
+      align-self: flex-start;
     }
   }
 }
@@ -201,14 +202,14 @@
 
 .c-bottom-section {
   width: 100vw;
-  height: 2900px;
+  height: fit-content;
   background-color: $black;
 
   @include moreThanTablet {
     background-image: url('/images/LETTERS.svg');
     background-repeat: no-repeat;
-    background-position: 0 0;
-    background-size: 100% 100%;
+    background-position: 0 80%;
+    background-size: cover;
   }
 }
 
@@ -220,6 +221,10 @@
   background-color: transparent;
   padding: $spacing-xl 0;
   gap: $spacing-lg;
+
+  @include moreThanTablet {
+    height: 100vh;
+  }
 
   &__title {
     margin-top: $base-fs;
@@ -250,4 +255,47 @@
     border: 1px solid $orange;
     margin-top: $spacing-xl;
   }
+}
+
+.c-pop {
+  height: fit-content;
+  padding-top: 50px;
+  text-align: center;
+
+  @include onDesktop {
+    height: 100vh;
+  }
+
+  &__container {
+    // display: flex;
+
+    @include moreThanTablet {
+      display: grid;
+    }
+  }
+
+  &__item {
+
+    @include onTablet {
+      &:nth-child(odd) {
+        padding-left: 30px;
+      }
+  
+      &:nth-child(even) {
+        padding-right: 30px;
+      }
+    }
+  }
+}
+
+.c-card {
+  // width: 50%;
+  height: 450px;
+  background-color: #fff;
+  border-top-left-radius: 50px;
+
+  @include moreThanTablet {
+    width: 100%;
+  }
+
 }

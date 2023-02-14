@@ -4,6 +4,7 @@
     <HalfBanner />
     <BottomSection>
       <CSwiper />
+      <PopularItems />
       <Subscribe />
     </BottomSection>
   </Default> 
@@ -13,7 +14,8 @@
 import Default from '@/layouts/Default.vue';
 import TopBanner from '@/components/Main/TopBanner.vue';
 import HalfBanner from '@/components/Main/HalfBanner.vue';
-import Subscribe from '@/components/Main/components/Subscribe.vue';
-import BottomSection from '@/components/Main/BottomSection.vue';
-import CSwiper from '@/components/Main/components/CSwiper.vue';
+import Subscribe from '@/components/Main/BottomSection/Subscribe.vue';
+import BottomSection from '@/components/Main/BottomSection/BottomSection.vue';
+import CSwiper from '@/components/Main/BottomSection/CSwiper.vue';
+import PopularItems from '@/components/Main/BottomSection/PopularItems.vue';
 </script>
