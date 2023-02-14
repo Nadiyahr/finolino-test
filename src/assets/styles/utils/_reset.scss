@@ -56,3 +56,10 @@ ul, li {
   list-style-type: none;
   color: $white;
 }
+
+input {
+  color: $white;
+  &:focus-visible {
+    outline: none;
+  }
+}

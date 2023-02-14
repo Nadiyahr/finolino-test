@@ -1,10 +1,30 @@
-@mixin button-text {
+@mixin main-button {
+  width: 90%;
+  height: 8vh;
+  color: $white;
   font-style: normal;
   font-weight: 700;
   font-size: 24px;
   line-height: 36px;
   letter-spacing: 0.04em;
   text-transform: uppercase;
+
+  &:hover {
+    transform: scale(1.1);
+    transition: transform .5s ease-out;
+  }
+
+  &:disabled {
+    opacity: 0.8;
+    transform: none;
+  }
+
+  @include moreThanTablet {
+    width: 40%;
+    height: 12vh;
+    font-size: 24px;
+    line-height: 36px;
+  }
 }
 
 @mixin font ($size, $weight, $lineH, $color) {
@@ -87,6 +107,15 @@
   height: 100px;
   background-color: $bg-trasp;
   text-align: center;
+}
+
+@mixin text-button {
+  color: $white;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 36px;
+  letter-spacing: 0;
+  text-transform: uppercase
 }
 
 @mixin onTablet {

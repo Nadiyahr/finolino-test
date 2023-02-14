@@ -1,19 +1,10 @@
 .c-button-top {
-  width: 90%;
-  height: 8vh;
+  @include main-button;
   border: 4px solid $white;
   border-top-right-radius: 50px;
   background-color: transparent;
-  color: $white;
-  font-weight: 600;
-  font-size: 24px;
-  line-height: 36px;
-  letter-spacing: 0;
-  text-transform: uppercase;
 
   @include moreThanTablet {
-    width: 24vw;
-    height: 12vh;
     background-color: #d7985a80;
   }
 }
@@ -89,7 +80,7 @@
   letter-spacing: -2.7px;
 
   @include moreThanTablet {
-    width: 50vw;
+    width: 100%;
   }
 }
 
@@ -187,7 +178,6 @@
     border-right: 1px solid $white;
     background-color: inherit;
   }
-
 }
 
 .c-icon {
@@ -206,5 +196,58 @@
     padding: 10px;
     padding-bottom: 4px;
     border: none;
+  }
+}
+
+.c-bottom-section {
+  width: 100vw;
+  height: 2900px;
+  background-color: $black;
+
+  @include moreThanTablet {
+    background-image: url('/images/LETTERS.svg');
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-size: 100% 100%;
+  }
+}
+
+.c-subscribe {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-color: transparent;
+  padding: $spacing-xl 0;
+  gap: $spacing-lg;
+
+  &__title {
+    margin-top: $base-fs;
+    
+    @include moreThanTablet {
+      margin-top: $spacing-xl;
+    }
+  }
+
+  &__imput {
+    text-align: center;
+    border: none;
+    border-bottom: 1px solid $white;
+    background-color: $black;
+    letter-spacing: 0;
+  }
+
+  &__checkbox {
+    padding: $spacing-unit;
+    margin-right: $spacing-md;
+    accent-color: $gray-darker;
+  }
+
+  &__button {
+    @include main-button;
+    border-bottom-right-radius: 50px;
+    background-color: $orange;
+    border: 1px solid $orange;
+    margin-top: $spacing-xl;
   }
 }
