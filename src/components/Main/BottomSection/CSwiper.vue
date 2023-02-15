@@ -14,7 +14,7 @@
       class="mySwiper"
     >
     <swiper-slide v-for="(img, i) in images" :key="i" class="u-relative " >
-      <img :src="`./images/${img}.png`" :alt="img" class="">
+      <img :src="`./images/${img}.png`" :alt="img" >
       <div class="c-label u-text-l u-p-lg">
         <h4>{{ title }}</h4>
         <p>1000 UAH and under</p>
@@ -65,7 +65,11 @@ const title = 'Lorem ipsum dolor sit amet'
   height: 1050px;
   padding: 20px;
 
-  @include moreThanTablet {
+  @include onTablet {
+    height: fit-content;
+  }
+
+  @include onDesktop {
     height: 80vh;
   }
 }
@@ -81,13 +85,13 @@ const title = 'Lorem ipsum dolor sit amet'
   width: 100%;
   height: 60vw;
 
-  @include moreThanTablet {
+  @include onDesktop {
     height: 100%;
   }
 }
 
 .swiper-slide-active {
-  @include moreThanTablet {
+  @include onDesktop {
     width: 56vw !important;
   }
 }

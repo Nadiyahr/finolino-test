@@ -86,17 +86,14 @@
 
 .c-footer {
   width: 100vw;
-  height: 50vh;
+  height: fit-content;
   padding-top: $spacing-lg;
   background-color: $black;
 
-  @include moreThanTablet {
-    height: 40vh;
-  }
 
   &__logo {
     margin: auto;
-    @include moreThanTablet {
+    @include onDesktop {
       margin: 0;
       padding-bottom: $spacing-xl;
       align-self: flex-start;
@@ -188,6 +185,10 @@
     display: flex;
     justify-content: space-between;
     margin: auto 0;
+
+    // @include onDesktop {
+    //   margin: auto 0;
+    // }
   }
 
   &__button {
@@ -219,12 +220,9 @@
   align-items: center;
   text-align: center;
   background-color: transparent;
-  padding: $spacing-xl 0;
+  padding: $spacing-xl 0 100px;
   gap: $spacing-lg;
 
-  @include moreThanTablet {
-    height: 100vh;
-  }
 
   &__title {
     margin-top: $base-fs;
@@ -262,12 +260,8 @@
   padding-top: 50px;
   text-align: center;
 
-  @include onDesktop {
-    height: 100vh;
-  }
-
   &__container {
-    // display: flex;
+    padding-top: 20px;
 
     @include moreThanTablet {
       display: grid;
@@ -289,10 +283,9 @@
 }
 
 .c-card {
-  // width: 50%;
   height: 450px;
   background-color: #fff;
-  border-top-left-radius: 50px;
+  border-top-left-radius: 20px;
 
   @include moreThanTablet {
     width: 100%;

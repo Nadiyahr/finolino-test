@@ -1,5 +1,5 @@
 <template>
-  <div class="u-w-fit u-h-fit u-pointer u-py-2 u-m-auto">
+  <div class="u-w-fit u-h-fit u-pointer u-py-2">
     <svg class="logo">
       <use
         href="/icons/icon_list.svg#finolino"

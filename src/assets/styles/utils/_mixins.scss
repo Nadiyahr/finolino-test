@@ -90,7 +90,7 @@
   background-size: cover;
   cursor: pointer;
 
-  @include moreThanTablet {
+  @include onDesktop() {
     width: 50%;
     height: 100vh;
     display: inline-block;
