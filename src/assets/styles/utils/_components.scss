@@ -140,18 +140,26 @@
 
 .c-mobile-menu {
   position: absolute;
-  top: 55px;
+  top: 60px;
   left: 0;
   width: 100vw;
-  height: 98vh;
+  min-height: fit-content;
+  height: 100vh;
   padding: 20px;
+  // padding-top: 60px;
   background-color: inherit;
 
 
   &__content {
     display: flex;
     flex-direction: column;
-    gap: 100vw;
+    height: 100%;
+  }
+
+  &__contacts {
+    display: inline-block;
+    height: 100%;
+    padding-top: 70%;
   }
 }
 
@@ -283,12 +291,128 @@
 }
 
 .c-card {
-  height: 450px;
+  position: relative;
+  height: 260px;
   background-color: #fff;
   border-top-left-radius: 20px;
+  overflow: hidden;
+  cursor: pointer;
 
-  @include moreThanTablet {
-    width: 100%;
+  @include onTablet {
+    height: 350px;
   }
 
-}
+  @include onDesktop {
+    height: 420px;
+  }
+
+    &__div {
+      height: 75%;
+      @include moreThanTablet {
+        height: 80%;
+      }
+    }
+    
+    &__img {
+      width: 100%;
+      height: 100%;
+      
+      @include moreThanTablet {
+        object-fit: cover;
+      }
+    }
+
+    &__info {
+      text-align: start;
+      padding: 10px;
+    }
+
+    &__tags {
+      width: 100%;
+      height: fit-content;
+      position: absolute;
+      bottom: -28%;
+      left: 0;
+      opacity: 1;
+      text-align: start;
+      padding: 10px;
+      padding-top: 0;
+      opacity: 1;
+      background-color: #fff;
+      z-index: 100;
+
+      @include moreThanTablet {
+        bottom: -18%;
+      }
+    }
+    
+    &__title {
+      @extend .u-color-dark;
+      font-size: 14px;
+      line-height: 22px;
+      font-weight: $fw-5;
+
+      @include moreThanTablet {
+        font-size: 16px;
+        line-height: 20px;
+      }
+    }
+
+    &__price {
+      @extend .u-color-dark;
+      font-size: 12px;
+
+      @include moreThanTablet {
+        font-size: 14px;
+      }
+    }
+
+    &__season {
+      @extend .u-fs-xs;
+      color: $gray-darker;
+    }
+    
+    &__tag {
+      @extend .u-fs-xs;
+      @extend .u-color-dark;
+    }
+
+    &__new {
+      @extend .u-color-ligt;
+      width: 30%;
+      height: 8%;
+      font-size: 12px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      align-items: center;
+      background-color: $orange;
+
+      @include moreThanTablet {
+        font-size: 16px;
+        padding: 4px;
+      }
+    }
+  }
+
+  .c-tag {
+    display: inline-block;
+    padding: 0 4px;
+    margin: $spacing-unit;
+    margin-left: 0;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    border: 2px solid;
+    cursor: pointer;
+    
+    &--filter {
+      @extend .u-color-gray;
+      border-color: $gray-darker;
+    }
+
+    &--card {
+      @extend .u-color-card;
+      border-color: $gray;
+    }
+  }

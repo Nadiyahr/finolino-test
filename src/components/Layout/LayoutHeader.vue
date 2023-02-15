@@ -9,12 +9,22 @@
         <div class="u-w-fit u-my-auto u-pointer">
           <Logo />
         </div>
-        <CSearch v-if="!isMobile && openSearch" @toggle-search="toggleSearch" class="u-w-30 u-my-auto"/>
-        <IconButtonGroup v-if="!openSearch" :icons="icons" @toggle-menu="toggleMenu" @toggle-cross="toggleMenu" @toggle-search="toggleSearch" />
+        <CSearch
+          v-if="!isMobile && openSearch"
+          @toggle-search="toggleSearch"
+          class="u-w-30 u-my-auto"
+        />
+        <IconButtonGroup
+          v-if="!openSearch"
+          :icons="icons"
+          @toggle-menu="toggleMenu"
+          @toggle-cross="toggleMenu"
+          @toggle-search="toggleSearch"
+        />
       </div>
     </nav>
     <transition name="fade">
-      <MobileMenu v-if="isMobile && openMobileMenu" class="c-mobile-menu"/>
+      <MobileMenu v-if="isMobile && openMobileMenu" class="c-mobile-menu" />
     </transition>
     <Portal target="#breadcrumbs-target" />
     <Portal target="#title-target" />
@@ -31,39 +41,35 @@ import CSearch from './components/CSearch.vue';
 import MobileMenu from './components/MobileMenu.vue';
 import CButtonHeader from './components/CButtonHeader.vue';
 
-const isMobile = breakpoints.smaller('tablet')
+const isMobile = breakpoints.smaller('tablet');
 
-const openMobileMenu = ref(false)
-const openSearch = ref(false)
+const openMobileMenu = ref(false);
+const openSearch = ref(false);
 
-const menu = computed(() => openMobileMenu.value ? 'cross' : 'menu')
-const icons = computed(() => isMobile.value ? ['cart', 'profile', menu.value] : ['search', 'heart', 'profile', 'cart'])
+const menu = computed(() => (openMobileMenu.value ? 'cross' : 'menu'));
+const icons = computed(() =>
+  isMobile.value
+    ? ['cart', 'profile', menu.value]
+    : ['search', 'heart', 'profile', 'cart']
+);
 
-const toggleMenu = () => openMobileMenu.value = !openMobileMenu.value
-const toggleSearch = () => openSearch.value = !openSearch.value
+const toggleMenu = () => (openMobileMenu.value = !openMobileMenu.value);
+const toggleSearch = () => (openSearch.value = !openSearch.value);
 </script>
 
 <style scoped lang="scss">
-.fade-enter-from {
-  top: -92%;
-}
-
-.fade-enter-to {
-  top: 55px;
-}
-
-.fade-enter-active {
-  transition: all 2s ease;
-}
-
-.fade-leave-from {
-  top: 55px;
-}
-
+.fade-enter-from,
 .fade-leave-to {
-  top: -92%;
+  top: -100%;
 }
+
+.fade-enter-to,
+.fade-leave-from {
+  top: 60px;
+}
+
+.fade-enter-active,
 .fade-leave-active {
-  transition: all 2s ease;
+  transition: all 2s ease-in-out;
 }
 </style>
