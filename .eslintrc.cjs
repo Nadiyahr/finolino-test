@@ -23,6 +23,7 @@ module.exports = {
     '@typescript-eslint/no-empty-function': 2,
     '@typescript-eslint/no-extra-semi': 2,
     '@typescript-eslint/no-unused-vars': 2,
+    'css.lint.unknownAtRules': 'ignore',
     'no-useless-constructor': 'off',
     '@typescript-eslint/no-useless-constructor': ['error'],
     'vue/order-in-components': [

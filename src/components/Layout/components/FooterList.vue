@@ -15,3 +15,18 @@ interface Props {
 
 const { title, list } = defineProps<Props>();
 </script>
+
+<style scoped lang="scss">
+.c-fotter-list {
+  color: $white;
+  &__title {
+    margin: $spacing-md 0;
+    letter-spacing: -1px;
+  }
+
+  &__item {
+    padding-bottom: 18px;
+    cursor: pointer;
+  }
+}
+</style>

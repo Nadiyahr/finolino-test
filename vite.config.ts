@@ -20,5 +20,12 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url)),
     }
   },
-  optimizeDeps: { exclude: ["swiper/vue", "swiper/types"], }
+  optimizeDeps: { exclude: ["swiper/vue", "swiper/types"], },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `@import "./src/assets/styles/utils/_vars.scss";`
+      }
+    }
+  }
 })

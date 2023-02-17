@@ -2,7 +2,7 @@
   <header class="u-bg-dark">
     <nav class="u-relative u-z-10 u-bg-dark">
       <div class="u-flex u-jsfy-btwn u-py-2">
-        <div v-if="!isMobile" class="u-flex">
+        <div v-if="!isMobile" class="u-flex u-align-center">
           <CButtonHeader name="Man" />
           <CButtonHeader name="Woman" />
         </div>
@@ -20,6 +20,7 @@
           @toggle-menu="toggleMenu"
           @toggle-cross="toggleMenu"
           @toggle-search="toggleSearch"
+          @toggle-cart="$router.push('/woman/clothing/dresses')"
         />
       </div>
     </nav>

@@ -2,9 +2,7 @@
   <div class="u-relative">
     <div class="c-card">
       <div v-if="item.is_new" class="c-card__new">New</div>
-      <div class="c-card__div">
-        <img :src="imageUrl" alt="" class="c-card__img" on />
-      </div>
+      <div class="c-card__img" :style="{ '--bgImage': `url('${imageUrl}')` }"></div>
       <div
         @mouseover="triger(true)"
         @mouseleave="triger(false)"
@@ -49,7 +47,7 @@ interface Props {
 
 const { item } = defineProps<Props>();
 
-const imageUrl = item.image === null ? './images/no-img.jpg' : item.image;
+const imageUrl = !item.image ? '/images/no-img.jpg' : (item.image as string);
 
 const title = item.title.split(/,|and/)[0];
 
@@ -62,7 +60,110 @@ const triger = (bool: boolean) => (hover.value = bool);
 onClickOutside(tagsRef, () => triger(false), { ignore: [ignoreRef] });
 </script>
 
-<style>
+<style lang="scss">
+.c-card {
+  position: relative;
+  min-width: 160px;
+  height: 260px;
+  background-color: #fff;
+  border-top-left-radius: 20px;
+  overflow: hidden;
+  cursor: pointer;
+
+  @include onTablet {
+    height: 300px;
+  }
+
+  @include onDesktop {
+    height: 360px;
+  }
+
+  &__img {
+    height: 75%;
+    background-image: var(--bgImage);
+    background-repeat: no-repeat;
+    background-position: center 0;
+    background-size: cover;
+    @include moreThanTablet {
+      // height: 80%;
+    }
+  }
+
+  &__info {
+    text-align: start;
+    padding: 10px;
+    border-top: 1px solid $gray;
+  }
+
+  &__tags {
+    width: 100%;
+    height: fit-content;
+    position: absolute;
+    bottom: -28%;
+    left: 0;
+    opacity: 1;
+    text-align: start;
+    padding: 10px;
+    padding-top: 0;
+    opacity: 1;
+    background-color: #fff;
+    z-index: 100;
+
+    @include moreThanTablet {
+      bottom: -18%;
+    }
+  }
+
+  &__title {
+    @extend .u-color-dark;
+    font-size: 14px;
+    line-height: 22px;
+    font-weight: $fw-5;
+
+    @include moreThanTablet {
+      font-size: 16px;
+      line-height: 20px;
+    }
+  }
+
+  &__price {
+    @extend .u-color-dark;
+    font-size: 12px;
+
+    @include moreThanTablet {
+      font-size: 14px;
+    }
+  }
+
+  &__season {
+    @extend .u-fs-xs;
+    color: $gray-darker;
+  }
+
+  &__tag {
+    @extend .u-fs-xs;
+    @extend .u-color-dark;
+  }
+
+  &__new {
+    @extend .u-color-ligt;
+    width: 30%;
+    height: 7%;
+    font-size: 12px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    align-items: center;
+    line-height: 22px;
+    background-color: $orange;
+
+    @include moreThanTablet {
+      font-size: 16px;
+      line-height: 25px;
+      padding: 0 16px;
+    }
+  }
+}
 .slide-fade-enter-active {
   transition: all 0.3s ease-out;
 }
@@ -71,7 +172,7 @@ onClickOutside(tagsRef, () => triger(false), { ignore: [ignoreRef] });
 }
 .slide-fade-enter,
 .slide-fade-leave-to {
-  transform: translateY(-10px);
+  /* transform: translateY(-10px); */
   opacity: 0;
 }
 </style>

@@ -9,13 +9,18 @@ const router = createRouter({
       path: '/',
       name: 'Home',
       component: Home,
-      children: [
-        {
-          path: 'catalog',
-          name: 'Catalog',
-          component: Catalog,
-        }
-      ]
+      // children: [
+      //   {
+      //     path: 'catalog',
+      //     name: 'Catalog',
+      //     component: Catalog,
+      //   }
+      // ]
+    },
+    {
+      path: '/woman/clothing/dresses',
+      name: 'Catalog',
+      component: Catalog,
     }
   ],
   scrollBehavior(to, from, savedPosition) {

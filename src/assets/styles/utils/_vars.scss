@@ -1,4 +1,6 @@
-@import './settings/colors';
-@import './settings/spacing';
-@import './settings/topography';
-@import './settings/breacpoints';
+@import 'colors';
+@import 'spacing';
+@import 'topography';
+@import 'breacpoints';
+@import 'mixins';
+@import './utilites';

@@ -17,11 +17,20 @@
   }
 }
 
+@mixin portal {
+  font-weight: $fw-5;
+  font-size: $base-fs;
+  line-height: 22px;
+  padding: $spacing-sm 0;
+  text-transform: capitalize;
+}
+
 @mixin font ($size, $weight, $lineH, $color) {
   font-size: $size;
   font-weight: $weight;
   line-height: $lineH;
-  color: $color;
+  color: $info;
+  text-transform: capitalize;
 }
 
 @mixin clearfix {
@@ -46,7 +55,7 @@
 }
 
 @mixin bg-img {
-  background-image: url('../LETTERS.svg');
+  background-image: url('/images/LETTERS.svg');
   background-repeat: no-repeat;
   background-position: 0 0;
   background-size: 100%;

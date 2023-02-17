@@ -20,6 +20,8 @@ import data from '@/api/finolino_dresses.json';
 
 const goods = computed(() => data.filter(({ image }) => image !== null).slice(0, 4));
 
+// filter(({ image }) => image !== null).
+
 const celStartEnd = [1, 2, 1, 2];
 const celStartT = [1, 4, 1, 4];
 const celEndT = [3, 6, 3, 6];
@@ -32,3 +34,31 @@ const gridItemClass = (index: number) => {
   `;
 };
 </script>
+
+<style scoped lang="scss">
+.c-pop {
+  height: fit-content;
+  padding-top: 50px;
+  text-align: center;
+
+  &__container {
+    padding-top: 20px;
+
+    @include moreThanTablet {
+      display: grid;
+    }
+  }
+
+  &__item {
+    @include onTablet {
+      &:nth-child(odd) {
+        padding-left: 30px;
+      }
+
+      &:nth-child(even) {
+        padding-right: 30px;
+      }
+    }
+  }
+}
+</style>
