@@ -8,7 +8,7 @@
     >
       <svg class="icon">
         <use
-          :href="`/icons/icon_list.svg#${icon}`"
+          :href="`./icons/icon_list.svg#${icon}`"
           width="18"
           height="18"
           viewBox="0 0 18 18"

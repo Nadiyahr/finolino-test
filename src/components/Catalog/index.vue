@@ -15,10 +15,13 @@
         <div class="u-flex u-jsfy-btwn">
           <div></div>
           <div>
-            <CButtonHeader name="filters" />
-            <CButtonHeader name="newest" />
+            <CButtonHeader name="filters" @on-click="isFilterOpen = !isFilterOpen" />
+            <portal to="#popup-filters" class="c-portal">
+              <PopupNewest v-if="isFilterOpen" @close="isFilterOpen = !isFilterOpen" />
+            </portal>
+            <CButtonHeader :name="sortBy" @on-click="isNevestOpen = !isNevestOpen" />
             <portal to="#popup-newest" class="c-portal">
-              <PopupNewest />
+              <PopupNewest v-if="isNevestOpen" @close="isNevestOpen = !isNevestOpen" />
             </portal>
           </div>
         </div>
@@ -26,7 +29,7 @@
     </portal>
     <div class="c-card-container">
       <CardComponent
-        v-for="card in Goods"
+        v-for="card in filtredGoods"
         :key="card.id"
         :item="card"
         class="c-card-container__card"
@@ -36,18 +39,34 @@
 </template>
 
 <script setup lang="ts">
-import Goods from '@/api/finolino_dresses.json';
-import CardComponent from '../Card/CardComponent.vue';
+// import Goods from '@/api/finolino_dresses.json';
+import { computed, ref, watch } from 'vue';
 import { useRoute } from 'vue-router';
+import { useStore } from 'vuex';
+import CardComponent from '../Card/CardComponent.vue';
 import CButtonHeader from '../Layout/components/CButtonHeader.vue';
 import PopupNewest from '../popUps/PopupNewest.vue';
 
 const route = useRoute();
+const store = useStore();
+
+// const filtredGoods = ref(store.state.goods);
+
+let filtredGoods = computed(() => store.state.goods);
+const sortBy = computed(() => store.getters.getOrderFilter);
+watch(
+  store.state.goods,
+  () => (filtredGoods = store.state.goods)
+  // () => console.log('59', filtredGoods)
+);
+
+const isNevestOpen = ref(false);
+const isFilterOpen = ref(false);
 
 const path = route.fullPath.split('/').slice(1);
 const title = path[2];
 
-console.log(path);
+console.log('68', filtredGoods.value);
 </script>
 
 <style lang="scss">

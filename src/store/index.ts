@@ -1,34 +1,41 @@
+import { Order, State } from './types';
 import { createStore } from 'vuex'
 // import axios from 'axios'
 
 import data from '@/api/finolino_dresses.json'
 
-export default createStore({
+export default createStore<State>({
   state: {
-    goods: data,
+    goods: data.sort((prev, next) => Date.parse(next.update_date) - Date.parse(prev.update_date)),
     filters: {
-      byNewest: false,
-      byAZ: false,
-      byZA: false,
+      ordering: 'Newest',
       bySize: [],
       bySeason: [],
       byPrice: []
     }
   },
   getters: {
-    getFiltredGoods: (state) => {
-      return {
-        
-      }
-    },
+    getOrderFilter: (state) => state.filters.ordering,
+    // getfilteredGoods: (state) => state.goods,
   },
   actions: {
-    GET_GOODS: async function ({commit}) {
-     
+    SET_ORDERING: function ({commit}, payload) {
+     commit('SET_ORDERING', payload)
+     commit('SET_GOODS', payload)
     },
   },
   mutations: {
-    SET_LOADING(state) {
+    SET_ORDERING(state, payload) {
+      state.filters.ordering = payload
     },
+    SET_GOODS(state, payload: Order) {
+      const sortBy = {
+        'Newest': data.sort((prev, next) => Date.parse(next.update_date) - Date.parse(prev.update_date)),
+        'A-Z': data.sort((prev, next) => prev.title.localeCompare(next.title)),
+        'Z-A': data.sort((prev, next) => next.title.localeCompare(prev.title))
+      }
+
+      state.goods = sortBy[payload]
+    }
   }
 })

@@ -1,6 +1,6 @@
 <template>
   <div class="u-inline-block c-button-select">
-    <button class="c-button-select__btn" :class="buttonClass">
+    <button @click="$emit('on-click')" class="c-button-select__btn" :class="buttonClass">
       {{ name }}
       <svg v-if="!isMenu" class="icon-chevron">
         <use
