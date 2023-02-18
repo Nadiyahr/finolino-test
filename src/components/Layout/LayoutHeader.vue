@@ -1,6 +1,6 @@
 <template>
   <header class="u-bg-dark">
-    <nav class="u-relative u-z-10 u-bg-dark">
+    <nav class="u-relative u-z-100 u-bg-dark">
       <div class="u-flex u-jsfy-btwn u-py-2">
         <div v-if="!isMobile" class="u-flex u-align-center">
           <CButtonHeader name="Man" />
@@ -27,9 +27,6 @@
     <transition name="fade">
       <MobileMenu v-if="isMobile && openMobileMenu" class="c-mobile-menu" />
     </transition>
-    <Portal target="#breadcrumbs-target" />
-    <Portal target="#title-target" />
-    <Portal target="#filter-target" />
   </header>
 </template>
 

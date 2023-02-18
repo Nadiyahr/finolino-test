@@ -6,19 +6,13 @@
       @click="$emit(`toggle-${icon}`)"
       class="c-icon__button"
     >
-      <svg class="icon">
-        <use
-          :href="`./icons/icon_list.svg#${icon}`"
-          width="18"
-          height="18"
-          viewBox="0 0 18 18"
-        ></use>
-      </svg>
+      <CIcon :id="icon" class="icon" />
     </button>
   </div>
 </template>
 
 <script setup lang="ts">
+import CIcon from '@/components/icons/CIcon.vue';
 interface Props {
   icons: string[];
 }

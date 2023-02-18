@@ -1,32 +1,34 @@
 <template>
   <section class="c-bg-catalog">
-    <portal to="#breadcrumbs-target">
-      <div class="c-portal">
-        <p class="u-color-info u-capitalizze">{{ path.join(' > ') }}</p>
-      </div>
-    </portal>
-    <portal to="#title-target">
-      <div class="c-portal">
-        <h5 class="u-color-dark u-capitalizze">{{ title }}</h5>
-      </div>
-    </portal>
-    <portal to="#filter-target">
-      <div class="c-portal">
-        <div class="u-flex u-jsfy-btwn">
-          <div></div>
-          <div>
-            <CButtonHeader name="filters" @on-click="isFilterOpen = !isFilterOpen" />
-            <portal to="#popup-filters" class="c-portal">
-              <PopupNewest v-if="isFilterOpen" @close="isFilterOpen = !isFilterOpen" />
-            </portal>
-            <CButtonHeader :name="sortBy" @on-click="isNevestOpen = !isNevestOpen" />
-            <portal to="#popup-newest" class="c-portal">
-              <PopupNewest v-if="isNevestOpen" @close="isNevestOpen = !isNevestOpen" />
-            </portal>
+    <div class="c-portal">
+      <p class="u-color-info u-capitalizze">{{ path.join(' > ') }}</p>
+    </div>
+    <div class="c-portal">
+      <h5 class="u-color-dark u-capitalizze">{{ title }}</h5>
+    </div>
+    <div class="c-portal">
+      <div class="u-flex u-jsfy-btwn">
+        <div></div>
+        <div>
+          <div class="c-btn-container">
+            <CButtonHeader
+              name="filters"
+              width="100px"
+              @on-click="isFilterOpen = !isFilterOpen"
+            />
+            <PopupFilter v-if="isFilterOpen" @close="isFilterOpen = !isFilterOpen" />
+          </div>
+          <div class="c-btn-container">
+            <CButtonHeader
+              :name="sortBy"
+              width="100px"
+              @on-click="isNevestOpen = !isNevestOpen"
+            />
+            <PopupNewest v-if="isNevestOpen" @close="isNevestOpen = !isNevestOpen" />
           </div>
         </div>
       </div>
-    </portal>
+    </div>
     <div class="c-card-container">
       <CardComponent
         v-for="card in filtredGoods"
@@ -39,37 +41,45 @@
 </template>
 
 <script setup lang="ts">
-// import Goods from '@/api/finolino_dresses.json';
-import { computed, ref, watch } from 'vue';
+import { Good } from '@/vite-env';
+import { ref, watch, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
 import { useStore } from 'vuex';
 import CardComponent from '../Card/CardComponent.vue';
 import CButtonHeader from '../Layout/components/CButtonHeader.vue';
 import PopupNewest from '../popUps/PopupNewest.vue';
+import PopupFilter from '../popUps/PopupFilter.vue';
 
 const route = useRoute();
 const store = useStore();
-
-// const filtredGoods = ref(store.state.goods);
-
-let filtredGoods = computed(() => store.state.goods);
-const sortBy = computed(() => store.getters.getOrderFilter);
-watch(
-  store.state.goods,
-  () => (filtredGoods = store.state.goods)
-  // () => console.log('59', filtredGoods)
-);
-
 const isNevestOpen = ref(false);
 const isFilterOpen = ref(false);
+
+let sortBy = ref(store.state.filters.ordering);
+let filtredGoods = ref<Good[]>([]);
+
+watch(
+  () => store.state.filters.ordering,
+  (newVal) => {
+    sortBy.value = newVal;
+    filtredGoods.value = store.state.sortedGoods;
+  }
+);
 
 const path = route.fullPath.split('/').slice(1);
 const title = path[2];
 
-console.log('68', filtredGoods.value);
+onMounted(() => {
+  store.commit('SORT_GOODS', 'Newest');
+  filtredGoods.value = store.state.sortedGoods;
+});
 </script>
 
 <style lang="scss">
+.c-btn-container {
+  display: inline-block;
+  position: relative;
+}
 .c-card-container {
   display: flex;
   flex-wrap: wrap;
@@ -87,9 +97,11 @@ console.log('68', filtredGoods.value);
 }
 
 .c-bg-catalog {
-  @include bg-img;
-
   background-color: $gray;
+
+  @include moreThanTablet {
+    @include bg-img;
+  }
 }
 
 .c-portal {

@@ -8,9 +8,10 @@
 interface Props {
   text: string;
   colorGray?: boolean;
+  active?: boolean;
 }
 
-const { text, colorGray = false } = defineProps<Props>();
+const { text, colorGray = false, active = false } = defineProps<Props>();
 </script>
 
 <style scoped lang="scss">
@@ -33,6 +34,11 @@ const { text, colorGray = false } = defineProps<Props>();
   &--card {
     @extend .u-color-card;
     border-color: $gray;
+  }
+
+  &--active {
+    color: $dark;
+    border-color: $dark;
   }
 }
 </style>
