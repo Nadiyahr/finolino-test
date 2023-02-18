@@ -1,14 +1,13 @@
 <template>
   <div class="u-relative">
-    <div class="c-card">
+    <div ref="ignoreRef" class="c-card">
       <div v-if="item.is_new" class="c-card__new">New</div>
       <div class="c-card__img" :style="{ '--bgImage': `url('${imageUrl}')` }"></div>
       <div
+        class="c-card__info"
         @mouseover="triger(true)"
         @mouseleave="triger(false)"
         @click.stop="triger(true)"
-        ref="ignoreRef"
-        class="c-card__info"
       >
         <h6 class="c-card__title">{{ title }}</h6>
         <p class="c-card__price">{{ item.price }} UAH</p>
@@ -49,7 +48,7 @@ const { item } = defineProps<Props>();
 
 const imageUrl = !item.image ? '/images/no-img.jpg' : (item.image as string);
 
-const title = item.title.split(/,|and/)[0];
+const title = item.title.split(/,|and| /)[0];
 
 const hover = ref(false);
 const tagsRef = ref(null);
@@ -63,7 +62,7 @@ onClickOutside(tagsRef, () => triger(false), { ignore: [ignoreRef] });
 <style lang="scss">
 .c-card {
   position: relative;
-  min-width: 160px;
+  min-width: 135px;
   height: 260px;
   background-color: #fff;
   border-top-left-radius: 20px;
@@ -84,14 +83,11 @@ onClickOutside(tagsRef, () => triger(false), { ignore: [ignoreRef] });
     background-repeat: no-repeat;
     background-position: center 0;
     background-size: cover;
-    @include moreThanTablet {
-      // height: 80%;
-    }
   }
 
   &__info {
     text-align: start;
-    padding: 10px;
+    padding: 16px;
     border-top: 1px solid $gray;
   }
 
@@ -103,8 +99,7 @@ onClickOutside(tagsRef, () => triger(false), { ignore: [ignoreRef] });
     left: 0;
     opacity: 1;
     text-align: start;
-    padding: 10px;
-    padding-top: 0;
+    padding: 0 16px 8px;
     opacity: 1;
     background-color: #fff;
     z-index: 100;
@@ -153,8 +148,8 @@ onClickOutside(tagsRef, () => triger(false), { ignore: [ignoreRef] });
     position: absolute;
     top: 0;
     left: 0;
-    align-items: center;
-    line-height: 22px;
+    padding: 0 12px;
+    line-height: 16px;
     background-color: $orange;
 
     @include moreThanTablet {

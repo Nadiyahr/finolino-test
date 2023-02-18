@@ -1,18 +1,18 @@
 <template>
-  <header class="u-bg-dark">
-    <nav class="u-relative u-z-100 u-bg-dark">
-      <div class="u-flex u-jsfy-btwn u-py-2">
-        <div v-if="!isMobile" class="u-flex u-align-center">
+  <header class="c-header">
+    <nav class="c-header__nav">
+      <div class="c-header__container">
+        <div v-if="!isMobile" class="c-header__buttons">
           <CButtonHeader name="Man" />
           <CButtonHeader name="Woman" />
         </div>
-        <div class="u-w-fit u-my-auto u-pointer">
+        <div class="c-header__logo">
           <Logo />
         </div>
         <CSearch
           v-if="!isMobile && openSearch"
           @toggle-search="toggleSearch"
-          class="u-w-30 u-my-auto"
+          class="c-header__search"
         />
         <IconButtonGroup
           v-if="!openSearch"
@@ -25,7 +25,7 @@
       </div>
     </nav>
     <transition name="fade">
-      <MobileMenu v-if="isMobile && openMobileMenu" class="c-mobile-menu" />
+      <MobileMenu v-if="isMobile && openMobileMenu" />
     </transition>
   </header>
 </template>
@@ -56,6 +56,34 @@ const toggleSearch = () => (openSearch.value = !openSearch.value);
 </script>
 
 <style scoped lang="scss">
+.c-header {
+  @extend .u-bg-dark;
+
+  &__nav {
+    @extend .u-relative, .u-z-100;
+  }
+
+  &__container {
+    @extend .u-flex, .u-jsfy-btwn;
+    padding: 8px 0;
+
+    @include onDesktop {
+      padding: 0;
+    }
+  }
+
+  &__buttons {
+    @extend .u-flex, .u-align-center;
+  }
+
+  &__logo {
+    @extend .u-w-fit, .u-my-auto, .u-pointer;
+  }
+
+  &__search {
+    @extend .u-w-30, .u-my-auto;
+  }
+}
 .fade-enter-from,
 .fade-leave-to {
   top: -100%;

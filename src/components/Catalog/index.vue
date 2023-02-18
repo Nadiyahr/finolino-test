@@ -9,8 +9,8 @@
     <div class="c-portal">
       <div class="u-flex u-jsfy-btwn">
         <div></div>
-        <div>
-          <div class="c-btn-container">
+        <div class="c-btn-group">
+          <div class="c-btn-group__container">
             <CButtonHeader
               name="filters"
               width="100px"
@@ -18,7 +18,7 @@
             />
             <PopupFilter v-if="isFilterOpen" @close="isFilterOpen = !isFilterOpen" />
           </div>
-          <div class="c-btn-container">
+          <div class="c-btn-group__container">
             <CButtonHeader
               :name="sortBy"
               width="100px"
@@ -76,9 +76,14 @@ onMounted(() => {
 </script>
 
 <style lang="scss">
-.c-btn-container {
-  display: inline-block;
-  position: relative;
+.c-btn-group {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+
+  &__container {
+    position: relative;
+  }
 }
 .c-card-container {
   display: flex;

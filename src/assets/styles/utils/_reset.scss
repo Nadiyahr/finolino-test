@@ -38,11 +38,11 @@ a {
 header,
 section,
 footer {
-  padding: 0 20px;
+  padding: 0 8px;
 
-  // @include moreThanTablet {
-  //   padding: 0 12%;
-  // }
+  @include over400px {
+    padding: 0 16px;
+  }
   @include onTablet {
     padding: 0 4%;
   }

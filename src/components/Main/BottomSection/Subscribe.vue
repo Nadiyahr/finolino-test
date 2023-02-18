@@ -18,7 +18,11 @@
         />
         <label for="checkbox">I accept the terms of Privacy Policy</label>
       </div>
-      <CButtonRouned text="Subscribe" additional-class="subscribe" />
+      <CButtonRouned
+        text="Subscribe"
+        additional-class="subscribe"
+        :disabeled="disabeled"
+      />
     </div>
   </section>
 </template>

@@ -33,7 +33,7 @@ const addClass = computed(() => `c-button--${additionalClass}`);
     border-top-right-radius: 50px;
     background-color: transparent;
 
-    @include moreThanTablet {
+    @include onDesktop {
       background-color: #d7985a80;
     }
   }

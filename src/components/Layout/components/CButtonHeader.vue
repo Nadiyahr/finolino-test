@@ -63,7 +63,6 @@ const buttonClass = computed(() =>
     line-height: $base-fs;
     padding: 0 8px;
     line-height: 28px;
-    margin: auto 8px;
     background-image: unset;
   }
 }

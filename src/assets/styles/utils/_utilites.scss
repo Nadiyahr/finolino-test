@@ -7,7 +7,7 @@
 }
 
 .u-clearfix {
-  @include clearfix
+  @include clearfix;
 }
 
 .u-text-upper {
@@ -132,8 +132,16 @@
   height: 110vh;
 }
 
-.u-py-2 {
-  padding: 4px 0 8px 0;
+.u-py-8 {
+  padding: 8px 0;
+
+  @include over400px {
+    padding: 10px 0;
+  }
+}
+
+.u-pt-2 {
+  padding-top: 2px;
 }
 
 .u-pl-1 {
@@ -146,7 +154,6 @@
 
 .u-pb-5 {
   padding-bottom: $spacing-xl;
-
 }
 .u-p-xl {
   padding: $spacing-xl;
@@ -205,7 +212,7 @@
 }
 
 .u-w-30 {
-  width: 30%;;
+  width: 30%;
 }
 
 .u-fs-xs {
@@ -220,6 +227,11 @@ h1 {
   font-weight: $fw-7;
   font-size: $fs-xl;
   line-height: $fs-xl;
+
+  @include onTablet {
+    font-size: $fs-xxl;
+    line-height: $fs-xxl;
+  }
 }
 
 h2 {
@@ -274,8 +286,20 @@ h6 {
 
   @include moreThanTablet {
     font-weight: $fw-5;
-  font-size: $fs-md;
-  line-height: 34px;
-  padding-bottom: 6px;
+    font-size: $fs-md;
+    line-height: 34px;
+    padding-bottom: 6px;
+  }
+}
+
+.u-gap-menu {
+  gap: 30vh;
+
+  @media screen and (max-heigth: 843px) and (min-height: 749px) {
+    gap: 42vh;
+  }
+
+  @media (min-height: 844px) {
+    gap: 47vh;
   }
 }

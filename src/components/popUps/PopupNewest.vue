@@ -54,13 +54,17 @@ onClickOutside(sortRef, () => closePopup());
 .c-popup {
   position: absolute;
   top: 120%;
-  right: 8px;
-  width: 10vw;
+  right: 0;
+  width: 120%;
   height: fit-content;
   padding: 10px 0;
   background-color: $white;
   color: $gray-darker;
   z-index: 10;
+
+  /* @include onDesktop {
+    width: 10vw;
+  } */
 
   &__item {
     padding: 4px 12px;

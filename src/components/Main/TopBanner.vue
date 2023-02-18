@@ -22,19 +22,28 @@ import CButtonRouned from '../CButtonRouned.vue';
   width: 100%;
   padding-top: 60vh;
 
-  @include moreThanTablet {
-    padding-top: 50vh;
+  @include onTablet {
+    width: 100%;
+    padding-top: 65vh;
+  }
+
+  @include onDesktop {
+    padding-top: 22%;
     padding-left: 12%;
   }
 }
 
 .c-bg-img-combine {
   width: 100vw;
-  height: 94vh;
-  @include bg-two-img;
+  height: 92vh;
+  @include bg-top-banner;
 
-  @include moreThanTablet {
-    height: 110vh;
+  @include onTablet {
+    height: 100vh;
+  }
+
+  @include onDesktop {
+    height: 100vh;
   }
 }
 </style>

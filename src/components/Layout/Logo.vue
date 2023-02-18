@@ -1,5 +1,5 @@
 <template>
-  <div @click="$router.push('/')" class="u-w-fit u-h-fit u-pointer u-py-2">
+  <div @click="$router.push('/')" class="u-w-fit u-h-fit u-pointer u-py-8">
     <CIcon
       id="finolino"
       :width="logoWidth"

@@ -19,6 +19,10 @@ const { title, list } = defineProps<Props>();
 <style scoped lang="scss">
 .c-fotter-list {
   color: $white;
+
+  @include onTablet {
+    text-align: start;
+  }
   &__title {
     margin: $spacing-md 0;
     letter-spacing: -1px;

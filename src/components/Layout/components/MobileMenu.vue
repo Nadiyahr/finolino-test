@@ -1,7 +1,7 @@
 <template>
   <div class="c-mobile-menu">
     <div class="c-mobile-menu__content">
-      <div>
+      <div class="c-mobile-menu__top">
         <CSearch />
         <div>
           <CButtonHeader name="Man" is-menu />
@@ -24,26 +24,19 @@ const contacts = ['+11 (011) 111 11 11 ', '+22 (022) 222 22 22', 'finolino@finol
 <style scoped lang="scss">
 .c-mobile-menu {
   position: absolute;
-  top: 60px;
+  top: 50px;
   left: 0;
   width: 100vw;
   min-height: fit-content;
-  height: 100vh;
+  height: 98vh;
   padding: 20px;
-  // padding-top: 60px;
   background-color: inherit;
   z-index: 50;
 
   &__content {
     display: flex;
     flex-direction: column;
-    height: 100%;
-  }
-
-  &__contacts {
-    display: inline-block;
-    height: 95vh;
-    padding-top: 37vh;
+    @extend .u-gap-menu;
   }
 }
 </style>
