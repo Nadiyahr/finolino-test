@@ -1,7 +1,7 @@
 <template>
   <div class="c-input c-input__container">
     <input v-model="data" class="c-input__input" placeholder="SEARCH" />
-    <IconButtonGroup
+    <CIconButtonGroup
       :icons="['search']"
       @toggle-search="$emit('toggle-search')"
       class="u-w-fit"
@@ -11,7 +11,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
-import IconButtonGroup from './IconButtonGroup.vue';
+import CIconButtonGroup from './CIconButtonGroup.vue';
 
 const data = ref('');
 </script>

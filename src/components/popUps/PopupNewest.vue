@@ -2,21 +2,21 @@
   <div ref="sortRef" class="c-popup">
     <ul>
       <li
-        @click="setFilter('Newest')"
+        @click="setSotting('Newest')"
         class="c-popup__item"
         :class="{ active: isActive('Newest') }"
       >
         Newest
       </li>
       <li
-        @click="setFilter('A-Z')"
+        @click="setSotting('A-Z')"
         class="c-popup__item"
         :class="{ active: isActive('A-Z') }"
       >
         A-Z
       </li>
       <li
-        @click="setFilter('Z-A')"
+        @click="setSotting('Z-A')"
         class="c-popup__item"
         :class="{ active: isActive('Z-A') }"
       >
@@ -42,8 +42,8 @@ const sortRef = ref(null);
 
 const closePopup = () => emit('close');
 
-const setFilter = (el: string) => {
-  store.dispatch('SET_ORDERING', el);
+const setSotting = (sortBy: string) => {
+  store.dispatch('SET_ORDERING', sortBy);
   closePopup();
 };
 
@@ -52,9 +52,8 @@ onClickOutside(sortRef, () => closePopup());
 
 <style scoped lang="scss">
 .c-popup {
-  position: absolute;
-  top: 120%;
-  right: 0;
+  @include popup-position;
+  @include shadow;
   width: 120%;
   height: fit-content;
   padding: 10px 0;

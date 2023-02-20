@@ -18,7 +18,7 @@
 </template>
 
 <script setup lang="ts">
-import CIcon from '@/components/icons/CIcon.vue';
+import CIcon from '@/components/components/CIcon.vue';
 interface Props {
   icons: string[];
 }

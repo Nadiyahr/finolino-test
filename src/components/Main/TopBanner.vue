@@ -14,7 +14,7 @@
 </template>
 
 <script setup lang="ts">
-import CButtonRouned from '../CButtonRouned.vue';
+import CButtonRouned from '../components/CButtonRouned.vue';
 </script>
 
 <style scoped lang="scss">

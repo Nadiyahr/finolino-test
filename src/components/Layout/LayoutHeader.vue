@@ -7,14 +7,14 @@
           <CButtonHeader name="Woman" />
         </div>
         <div class="c-header__logo">
-          <Logo />
+          <CLogo />
         </div>
         <CSearch
           v-if="!isMobile && openSearch"
           @toggle-search="toggleSearch"
           class="c-header__search"
         />
-        <IconButtonGroup
+        <CIconButtonGroup
           v-if="!openSearch"
           :icons="icons"
           @toggle-menu="toggleMenu"
@@ -33,11 +33,11 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue';
 import breakpoints from '@/plugins/breakpoints';
-import Logo from './Logo.vue';
-import IconButtonGroup from './components/IconButtonGroup.vue';
-import CSearch from './components/CSearch.vue';
+import CLogo from '../components/CLogo.vue';
+import CIconButtonGroup from '../components/CIconButtonGroup.vue';
+import CSearch from '../components/CSearch.vue';
 import MobileMenu from './components/MobileMenu.vue';
-import CButtonHeader from './components/CButtonHeader.vue';
+import CButtonHeader from '../components/CButtonHeader.vue';
 
 const isMobile = breakpoints.smaller('tablet');
 

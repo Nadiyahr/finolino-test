@@ -1,5 +1,5 @@
 <template>
-  <section class="c-bg-catalog">
+  <section class="c-bg-catalog u-pt-2">
     <div class="c-portal">
       <p class="u-color-info u-capitalizze">{{ path.join(' > ') }}</p>
     </div>
@@ -8,14 +8,21 @@
     </div>
     <div class="c-portal">
       <div class="u-flex u-jsfy-btwn">
-        <div></div>
+        <div class="u-flex">
+          <div v-for="(tags, idx) in filtresTags" :key="idx">
+            <CTagButton
+              v-for="(tag, i) in tags"
+              :text="tag"
+              :key="i"
+              colorGray
+              cross
+              @on-click="deleteTag(idx, tag)"
+            />
+          </div>
+        </div>
         <div class="c-btn-group">
           <div class="c-btn-group__container">
-            <CButtonHeader
-              name="filters"
-              width="100px"
-              @on-click="isFilterOpen = !isFilterOpen"
-            />
+            <CButtonHeader name="filters" width="100px" @on-click="openFilterPopup" />
             <PopupFilter v-if="isFilterOpen" @close="isFilterOpen = !isFilterOpen" />
           </div>
           <div class="c-btn-group__container">
@@ -42,21 +49,36 @@
 
 <script setup lang="ts">
 import { Good } from '@/vite-env';
-import { ref, watch, onMounted } from 'vue';
+import { ref, watch, onMounted, computed } from 'vue';
 import { useRoute } from 'vue-router';
 import { useStore } from 'vuex';
-import CardComponent from '../Card/CardComponent.vue';
-import CButtonHeader from '../Layout/components/CButtonHeader.vue';
-import PopupNewest from '../popUps/PopupNewest.vue';
-import PopupFilter from '../popUps/PopupFilter.vue';
+import CardComponent from '@/components/components/CardComponent.vue';
+import CButtonHeader from '@/components/components/CButtonHeader.vue';
+import PopupNewest from '@/components/popUps/PopupNewest.vue';
+import PopupFilter from '@/components/popUps/PopupFilter.vue';
+import CTagButton from '../components/CTagButton.vue';
 
 const route = useRoute();
 const store = useStore();
 const isNevestOpen = ref(false);
 const isFilterOpen = ref(false);
 
+const filtresTags = computed(() => store.state.filterTags);
+
 let sortBy = ref(store.state.filters.ordering);
 let filtredGoods = ref<Good[]>([]);
+
+const path = route.fullPath.split('/').slice(1);
+const title = path[2];
+
+const openFilterPopup = () => {
+  isFilterOpen.value = !isFilterOpen.value;
+};
+
+const deleteTag = (type: string | number, value: string) => {
+  store.commit('FILTER_GOODS', { type, value });
+  store.dispatch('APPLY__FILTERS');
+};
 
 watch(
   () => store.state.filters.ordering,
@@ -66,11 +88,13 @@ watch(
   }
 );
 
-const path = route.fullPath.split('/').slice(1);
-const title = path[2];
+watch(
+  () => store.state.sortedGoods,
+  (newVal) => (filtredGoods.value = newVal)
+);
 
 onMounted(() => {
-  store.commit('SORT_GOODS', 'Newest');
+  store.commit('SORT_GOODS', store.state.goods);
   filtredGoods.value = store.state.sortedGoods;
 });
 </script>
@@ -83,6 +107,8 @@ onMounted(() => {
 
   &__container {
     position: relative;
+    min-width: fit-content;
+    height: fit-content;
   }
 }
 .c-card-container {

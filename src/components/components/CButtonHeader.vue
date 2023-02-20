@@ -6,21 +6,33 @@
     :style="{ width: width }"
   >
     {{ name }}
-    <CIcon v-if="!isMenu" id="chevron-down" width="12" height="12" class="icon-chevron" />
+    <CIcon
+      v-if="!hideIcon"
+      id="chevron-down"
+      width="12"
+      height="12"
+      class="icon-chevron"
+    />
   </button>
 </template>
 
 <script setup lang="ts">
 import { computed } from 'vue';
-import CIcon from '@/components/icons/CIcon.vue';
+import CIcon from '@/components/components/CIcon.vue';
 
 interface Props {
   name: string;
   isMenu?: boolean;
   width?: string;
+  hideIcon?: boolean;
 }
 
-const { name, isMenu = false, width = 'fit-content' } = defineProps<Props>();
+const {
+  name,
+  isMenu = false,
+  width = 'fit-content',
+  hideIcon = false,
+} = defineProps<Props>();
 
 const buttonClass = computed(() =>
   isMenu ? 'c-button-select--menu' : 'c-button-select--common'
@@ -56,12 +68,13 @@ const buttonClass = computed(() =>
   }
 
   &--common {
+    min-width: fit-content;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     font-size: $base-fs;
     line-height: $base-fs;
-    padding: 0 8px;
+    padding: 0 10px;
     line-height: 28px;
     background-image: unset;
   }

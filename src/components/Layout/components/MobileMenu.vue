@@ -4,19 +4,19 @@
       <div class="c-mobile-menu__top">
         <CSearch />
         <div>
-          <CButtonHeader name="Man" is-menu />
-          <CButtonHeader name="Woman" is-menu />
+          <CButtonHeader name="Man" is-menu hide-icon />
+          <CButtonHeader name="Woman" is-menu hide-icon />
         </div>
       </div>
-      <FooterList title="Contacts" :list="contacts" class="c-mobile-menu__contacts" />
+      <CFooterList title="Contacts" :list="contacts" class="c-mobile-menu__contacts" />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import CSearch from './CSearch.vue';
-import CButtonHeader from './CButtonHeader.vue';
-import FooterList from './FooterList.vue';
+import CSearch from '../../components/CSearch.vue';
+import CButtonHeader from '../../components/CButtonHeader.vue';
+import CFooterList from '../../components/CFooterList.vue';
 
 const contacts = ['+11 (011) 111 11 11 ', '+22 (022) 222 22 22', 'finolino@finolino.com'];
 </script>

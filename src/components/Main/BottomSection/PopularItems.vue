@@ -15,7 +15,7 @@
 
 <script setup lang="ts">
 import { computed } from 'vue';
-import CardComponent from '@/components/Card/CardComponent.vue';
+import CardComponent from '@/components/components/CardComponent.vue';
 import data from '@/api/finolino_dresses.json';
 
 const goods = computed(() => data.filter(({ image }) => image !== null).slice(0, 4));

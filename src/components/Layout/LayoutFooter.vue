@@ -4,8 +4,8 @@
       <div
         class="grid__item grid__item--1-2 grid__item--tablet-1-12 grid__item--desktop-1-5 u-mb-center"
       >
-        <Logo class="c-footer__logo" />
-        <IconButtonGroup v-if="!isMobile" :icons="icons" class="c-footer__icons" />
+        <CLogo class="c-footer__logo" />
+        <CIconButtonGroup v-if="!isMobile" :icons="icons" class="c-footer__icons" />
         <p class="u-fw-light u-py-8 u-color-info u-fs-xs">
           &copy; {{ year }}. All rights reserved
         </p>
@@ -14,22 +14,22 @@
         class="grid__item grid__item--1-2 grid__item--tablet-2-4 grid__item--desktop-6-7"
       >
         <h6 v-if="isMobile">About us</h6>
-        <FooterList v-else title="About" :list="about" class="" />
+        <CFooterList v-else title="About" :list="about" class="" />
       </div>
       <div
         class="grid__item grid__item--1-2 grid__item--tablet-5-6 grid__item--desktop-8-9"
       >
         <h6 v-if="isMobile">Privacy policy</h6>
-        <FooterList v-else title="Help" :list="help" />
+        <CFooterList v-else title="Help" :list="help" />
       </div>
       <div
         class="grid__item grid__item--1-2 grid__item--tablet-7-10 grid__item--desktop-10-12"
       >
         <h6 v-if="isMobile" class="u-pb-5">FAQs</h6>
-        <FooterList v-else title="Contacts" :list="contacts" />
+        <CFooterList v-else title="Contacts" :list="contacts" />
       </div>
       <div class="grid__item grid__item--1-2 u-pb-5">
-        <IconButtonGroup v-if="isMobile" :icons="icons" class="u-m-auto" />
+        <CIconButtonGroup v-if="isMobile" :icons="icons" class="u-m-auto" />
       </div>
     </div>
   </footer>
@@ -37,9 +37,9 @@
 
 <script setup lang="ts">
 import breakpoints from '@/plugins/breakpoints';
-import Logo from './Logo.vue';
-import IconButtonGroup from './components/IconButtonGroup.vue';
-import FooterList from './components/FooterList.vue';
+import CLogo from '../components/CLogo.vue';
+import CIconButtonGroup from '../components/CIconButtonGroup.vue';
+import CFooterList from '../components/CFooterList.vue';
 
 const isMobile = breakpoints.between('mobile', 'tablet');
 const icons = ['instagram', 'facebook', 'printerist'];

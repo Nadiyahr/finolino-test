@@ -159,6 +159,10 @@
   padding: $spacing-xl;
 }
 
+.u-mb-md {
+  margin-bottom: $spacing-md;
+}
+
 .u-p-lg {
   padding: $spacing-lg;
 }
@@ -221,6 +225,14 @@
 
 .u-z-100 {
   z-index: 100;
+}
+
+.u-hiden {
+  display: none;
+}
+
+.u-align-end {
+  justify-content: end;
 }
 
 h1 {

@@ -29,7 +29,7 @@
 
 <script setup lang="ts">
 import { watch, ref } from 'vue';
-import CButtonRouned from '@/components/CButtonRouned.vue';
+import CButtonRouned from '@/components/components/CButtonRouned.vue';
 
 // const form = ref({
 //   email: '',

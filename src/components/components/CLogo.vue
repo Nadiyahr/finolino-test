@@ -13,7 +13,7 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 import breakpoints from '@/plugins/breakpoints';
-import CIcon from '@/components/icons/CIcon.vue';
+import CIcon from '@/components/components/CIcon.vue';
 
 const isMobile = breakpoints.between('mobile', 'tablet');
 const logoWidth = computed(() => (isMobile.value ? '200' : '300'));

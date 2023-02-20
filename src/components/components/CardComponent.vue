@@ -2,7 +2,7 @@
   <div class="u-relative">
     <div ref="ignoreRef" class="c-card">
       <div v-if="item.is_new" class="c-card__new">New</div>
-      <div class="c-card__img" :style="{ '--bgImage': `url('${imageUrl}')` }"></div>
+      <div class="c-card__img" :style="{ '--bgImage': `url('${item.image}')` }"></div>
       <div
         class="c-card__info"
         @mouseover="triger(true)"
@@ -27,7 +27,7 @@
           <span class="c-card__tag">{{ item.seasons.join(', ') }}</span>
         </p>
         <div>
-          <TagButton v-for="(size, i) in item.sizes" :key="i" :text="size" />
+          <CTagButton v-for="(size, i) in item.sizes" :key="i" :text="size" />
         </div>
       </div>
     </transition>
@@ -37,7 +37,7 @@
 <script setup lang="ts">
 import { Good } from '@/vite-env';
 import { ref } from 'vue';
-import TagButton from './TagButton.vue';
+import CTagButton from './CTagButton.vue';
 import { onClickOutside } from '@vueuse/core';
 
 interface Props {
@@ -45,8 +45,6 @@ interface Props {
 }
 
 const { item } = defineProps<Props>();
-
-const imageUrl = !item.image ? '/images/no-img.jpg' : (item.image as string);
 
 const title = item.title.split(/,|and| /)[0];
 
@@ -68,6 +66,7 @@ onClickOutside(tagsRef, () => triger(false), { ignore: [ignoreRef] });
   border-top-left-radius: 20px;
   overflow: hidden;
   cursor: pointer;
+  @include shadow;
 
   @include onTablet {
     height: 300px;
@@ -79,10 +78,11 @@ onClickOutside(tagsRef, () => triger(false), { ignore: [ignoreRef] });
 
   &__img {
     height: 75%;
-    background-image: var(--bgImage);
-    background-repeat: no-repeat;
-    background-position: center 0;
-    background-size: cover;
+    background-image: var(--bgImage), url('/images/finolino.svg'),
+      radial-gradient(circle, #d7cfd2 0%, #d1ddec 100%);
+    background-repeat: no-repeat, space round;
+    background-position: center 0, center;
+    background-size: cover, 90%;
   }
 
   &__info {
@@ -103,6 +103,7 @@ onClickOutside(tagsRef, () => triger(false), { ignore: [ignoreRef] });
     opacity: 1;
     background-color: #fff;
     z-index: 100;
+    @include shadow;
 
     @include moreThanTablet {
       bottom: -18%;
@@ -159,6 +160,7 @@ onClickOutside(tagsRef, () => triger(false), { ignore: [ignoreRef] });
     }
   }
 }
+
 .slide-fade-enter-active {
   transition: all 0.3s ease-out;
 }
