@@ -29,13 +29,17 @@
       </li>
       <li class="c-popup__item">
         <p class="u-color-dark u-mb-md">Price</p>
+        <div>
+          <input type="number" v-model="min" class="input-range" />
+          <input type="number" v-model="max" class="input-range" />
+          <CRangeInput :min="min" :max="max" @apply="setRange" />
+        </div>
       </li>
       <li class="c-popup__item u-flex u-align-end">
         <CButtonHeader
           name="Apply"
           class="u-align-end"
           @on-click="applyFiltres"
-          width="80px"
           hide-icon
         />
       </li>
@@ -50,6 +54,7 @@ import { onClickOutside } from '@vueuse/core';
 import CTagButton from '../components/CTagButton.vue';
 import CButtonHeader from '../components/CButtonHeader.vue';
 import CCheckbox from '../components/CCheckbox.vue';
+import CRangeInput from '../components/CRangeInput.vue';
 import { Filters } from '@/store/types';
 
 const store = useStore();
@@ -57,13 +62,21 @@ const emit = defineEmits(['close']);
 
 const sizes = ['XXS', 'XS', 'S', 'M', 'L', 'XL', 'XXL', '3XL'];
 const seasons = ['winter', 'summer'];
-const priceRange = ['1000', '10000'];
 
-const selectedSizes = computed(() => store.state.filters.bySize);
-const selectedSeasons = computed(() => store.state.filters.bySeason);
+const selectedSizes = computed(() => store.state.bySize);
+const selectedSeasons = computed(() => store.state.bySeason);
+
+const min = ref(250);
+const max = ref(2000);
+const setRange = (newRange: number[]) => {
+  min.value = newRange[0];
+  max.value = newRange[1];
+
+  store.commit('SET_FILTER_GOODS', { type: 'byPrice', value: newRange });
+};
 
 const select = (type: Filters, value: string) => {
-  store.commit('FILTER_GOODS', { type, value });
+  store.commit('SET_FILTER_GOODS', { type, value });
 };
 
 const filterRef = ref(null);
@@ -91,7 +104,7 @@ onClickOutside(filterRef, () => closePopup());
 
   &__item {
     padding: 4px 12px;
-    cursor: pointer;
+    margin-bottom: 8px;
   }
 }
 
@@ -99,5 +112,18 @@ onClickOutside(filterRef, () => closePopup());
   color: $black;
   border-color: $black;
 }
+
+.input-range {
+  display: inline-block;
+  width: 60px;
+  font-size: 14px;
+  font-weight: $fw-6;
+  text-align: center;
+  margin: 0 16px 20px 0;
+  border: none;
+  border-bottom: 2px solid $gray-darker;
+  background-color: $white;
+  color: $gray-darker;
+  letter-spacing: 0;
+}
 </style>
-/* &:hover { background-color: $secondary; }

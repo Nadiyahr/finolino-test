@@ -8,8 +8,8 @@
     </div>
     <div class="c-portal">
       <div class="u-flex u-jsfy-btwn">
-        <div class="u-flex">
-          <div v-for="(tags, idx) in filtresTags" :key="idx">
+        <div class="u-flex u-gap-sm">
+          <div v-for="(tags, idx) in filtresTags" :key="idx" class="u-flex u-gap-sm">
             <CTagButton
               v-for="(tag, i) in tags"
               :text="tag"
@@ -65,7 +65,7 @@ const isFilterOpen = ref(false);
 
 const filtresTags = computed(() => store.state.filterTags);
 
-let sortBy = ref(store.state.filters.ordering);
+let sortBy = ref(store.state.ordering);
 let filtredGoods = ref<Good[]>([]);
 
 const path = route.fullPath.split('/').slice(1);
@@ -75,13 +75,16 @@ const openFilterPopup = () => {
   isFilterOpen.value = !isFilterOpen.value;
 };
 
-const deleteTag = (type: string | number, value: string) => {
-  store.commit('FILTER_GOODS', { type, value });
+const deleteTag = (type: string | number, value: string | string[]) => {
+  if (type === 'byPrice') {
+    value = [];
+  }
+  store.commit('SET_FILTER_GOODS', { type, value });
   store.dispatch('APPLY__FILTERS');
 };
 
 watch(
-  () => store.state.filters.ordering,
+  () => store.state.ordering,
   (newVal) => {
     sortBy.value = newVal;
     filtredGoods.value = store.state.sortedGoods;

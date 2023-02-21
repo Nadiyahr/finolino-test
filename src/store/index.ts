@@ -14,16 +14,14 @@ export default createStore<State>({
       bySeason: [],
       byPrice: [],
     },
-    filters: {
-      ordering: 'Newest',
-      bySize: [],
-      bySeason: [],
-      byPrice: []
-    }
+    ordering: 'Newest',
+    bySize: [],
+    bySeason: [],
+    byPrice: []
   },
   getters: {
-    getOrderFilter: (state) => state.filters.ordering,
-    getFiters: (state) => ({ sizes: state.filters.bySize, seasons: state.filters.bySeason, price: state.filters.byPrice })
+    getOrderFilter: (state) => state.ordering,
+    getFiters: (state) => ({ sizes: state.bySize, seasons: state.bySeason, price: state.byPrice })
   },
   actions: {
     SET_ORDERING: function ({commit}, payload) {
@@ -38,11 +36,11 @@ export default createStore<State>({
   },
   mutations: {
     SET_ORDERING(state, payload) {
-      state.filters.ordering = payload
+      state.ordering = payload
     },
     SORT_GOODS(state, payload = state.sortedGoods) {
       const clone = [...payload]
-      const order = state.filters.ordering
+      const order = state.ordering
       const sortBy = {
         'Newest': () => clone.sort((prev, next) => Date.parse(next.update_date) - Date.parse(prev.update_date)),
         'A-Z': () => clone.sort((prev, next) => prev.title.localeCompare(next.title)),
@@ -51,22 +49,32 @@ export default createStore<State>({
       
       state.sortedGoods = sortBy[order]()
     },
-    FILTER_GOODS(state, payload: {type: Filters, value: string}) {
-      let arr = [...state.filters[payload.type]]
-      if (arr.includes(payload.value)) {
-        arr = arr.filter((el) => el !== payload.value);
-      } else {
-        arr.push(payload.value);
+    SET_FILTER_GOODS(state, payload: {type: Filters, value: string | number[]}) {
+      if (typeof payload.value !== 'string') {
+        state[payload.type] = payload.value as string[] & number[]
+        return
       }
 
-      state.filters[payload.type] = arr
+      
+      let arr = [...state[payload.type]]
+
+      if (arr.includes(payload.value as string)) {
+        arr = arr.filter((el) => el !== payload.value);
+      } else {
+        arr.push(payload.value as string);
+      }
+
+      state[payload.type] = arr as string[] & number[]
     },
     SET_APPLAY(state) {
-      state.filterTags = { bySize: state.filters.bySize, bySeason: state.filters.bySeason, byPrice: state.filters.byPrice }
+      const priceFilter = state.byPrice.length ? [state.byPrice.join('-')]: state.filterTags.byPrice
+      state.filterTags = { bySize: state.bySize, bySeason: state.bySeason, byPrice: priceFilter }
+
       let goods = [...state.goods]
 
       const bySize = state.filterTags.bySize
       const bySeason = state.filterTags.bySeason
+      const byPrice = state.byPrice
 
       const filtred = goods.filter(({sizes, seasons}) => {
         if (bySize.length && bySeason.length) {
@@ -84,7 +92,9 @@ export default createStore<State>({
         return true
       })
 
-      state.sortedGoods = filtred
+      const fitredByPrice = filtred.filter(({ price }) => Number(price) >= byPrice[0] && Number(price) <= byPrice[1])
+
+      state.sortedGoods = fitredByPrice.length ? fitredByPrice : filtred.length ? filtred : goods
     }
   }
 })

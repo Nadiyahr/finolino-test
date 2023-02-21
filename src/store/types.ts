@@ -1,21 +1,18 @@
 import { Good } from '@/vite-env'
-import { type } from 'os'
 
 export interface State {
   goods: Good[],
   sortedGoods: Good[],
-  filterTags: filterTags,
-    filters: {
-      ordering: Order,
-      bySize: string[],
-      bySeason: string[],
-      byPrice: string[]
-    }
+  filterTags: FilterTags,
+  ordering: Order,
+  bySize: string[],
+  bySeason: string[],
+  byPrice: number[]
 }
 
 export type Order = 'Newest' | 'A-Z' | 'Z-A'
 export type Filters = 'bySize' | 'bySeason' | 'byPrice'
-export type filterTags = {
+export type FilterTags = {
   bySize: string[];
   bySeason: string[];
   byPrice: string[];

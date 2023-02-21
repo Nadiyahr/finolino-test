@@ -5,6 +5,7 @@
       'c-tag--card': !colorGray,
       'c-tag--filter': colorGray,
       'c-tag--active': active,
+      'c-tag--portal': cross,
     }"
   >
     {{ text }}
@@ -53,7 +54,7 @@ const { text, colorGray = false, active = false, cross = false } = defineProps<P
   }
 
   &--filter {
-    /* @extend .u-color-gray; */
+    margin-right: 10px;
     color: $gray-darker;
     border-color: $gray-darker;
   }
@@ -66,6 +67,14 @@ const { text, colorGray = false, active = false, cross = false } = defineProps<P
   &--active {
     color: $dark;
     border-color: $dark;
+  }
+
+  &--portal {
+    margin: 0;
+
+    &:hover {
+      background-color: #e4dbf5;
+    }
   }
 
   &__icon {

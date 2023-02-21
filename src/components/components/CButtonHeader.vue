@@ -70,7 +70,7 @@ const buttonClass = computed(() =>
   &--common {
     min-width: fit-content;
     display: flex;
-    justify-content: center;
+    text-align: center;
     align-items: center;
     font-size: $base-fs;
     line-height: $base-fs;
