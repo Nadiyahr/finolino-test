@@ -55,7 +55,6 @@ export default createStore<State>({
         return
       }
 
-      
       let arr = [...state[payload.type]]
 
       if (arr.includes(payload.value as string)) {
@@ -67,7 +66,7 @@ export default createStore<State>({
       state[payload.type] = arr as string[] & number[]
     },
     SET_APPLAY(state) {
-      const priceFilter = state.byPrice.length ? [state.byPrice.join('-')]: state.filterTags.byPrice
+      const priceFilter = state.byPrice.length ? [state.byPrice.join('-')]: []
       state.filterTags = { bySize: state.bySize, bySeason: state.bySeason, byPrice: priceFilter }
 
       let goods = [...state.goods]
