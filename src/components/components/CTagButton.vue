@@ -35,22 +35,27 @@ const { text, colorGray = false, active = false, cross = false } = defineProps<P
 <style scoped lang="scss">
 .c-tag {
   display: inline-flex;
-  min-width: 28px;
+  min-width: 20px;
+  height: fit-content;
   text-align: center;
   justify-content: center;
   align-items: center;
   gap: 4px;
   padding: 0 4px;
-  /* margin: $spacing-unit; */
   margin-left: 0;
   font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 14px;
   border: 2px solid;
   cursor: pointer;
 
   &:hover {
     background-color: $gray;
+  }
+
+  @include moreThanTablet {
+    min-width: 28px;
+    font-size: 16px;
+    line-height: 24px;
   }
 
   &--filter {

@@ -83,6 +83,11 @@ onClickOutside(tagsRef, () => triger(false), { ignore: [ignoreRef] });
     background-repeat: no-repeat, space round;
     background-position: center 0, center;
     background-size: cover, 90%;
+
+    &:hover {
+      transform: scale(1.1);
+      transition: transform 0.5s ease-out;
+    }
   }
 
   &__info {
@@ -108,7 +113,11 @@ onClickOutside(tagsRef, () => triger(false), { ignore: [ignoreRef] });
     z-index: 100;
     @include shadow;
 
-    @include moreThanTablet {
+    @include onTablet {
+      bottom: -22%;
+    }
+
+    @include onDesktop {
       bottom: -18%;
     }
   }
@@ -138,6 +147,10 @@ onClickOutside(tagsRef, () => triger(false), { ignore: [ignoreRef] });
     font-size: 10px;
     color: $gray-darker;
 
+    @include onTablet {
+      font-size: 12px;
+    }
+
     @include onDesktop {
       font-size: 14px;
     }
@@ -147,6 +160,11 @@ onClickOutside(tagsRef, () => triger(false), { ignore: [ignoreRef] });
     font-size: 10px;
     color: $primary;
     padding-top: $spacing-sm;
+
+    @include onTablet {
+      font-size: 12px;
+    }
+
     @include onDesktop {
       font-size: 14px;
     }

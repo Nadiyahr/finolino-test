@@ -2,7 +2,7 @@
   <footer class="c-footer">
     <div class="grid grid--tablet grid--desktop u-text-center u-text-lg-start">
       <div
-        class="grid__item grid__item--1-2 grid__item--tablet-1-12 grid__item--desktop-1-5 u-text-center"
+        class="grid__item grid__item--1-2 grid__item--tablet-1-12 grid__item--desktop-1-5 u-text-center u-text-mtm-left"
       >
         <CLogo class="c-footer__logo" />
         <CIconButtonGroup v-if="!isMobile" :icons="icons" class="c-footer__icons" />

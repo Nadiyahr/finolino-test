@@ -32,6 +32,12 @@ $text-alignments: 'center', 'right', 'left';
         text-align: #{$text-alignment};
       }
     }
+
+    &-mtm-#{$text-alignment} {
+      @include moreThanTablet {
+        text-align: #{$text-alignment};
+      }
+    }
   
     &-lg-#{$text-alignment} {
       @include onDesktop {

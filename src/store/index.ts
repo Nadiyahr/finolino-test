@@ -76,16 +76,18 @@ export default createStore<State>({
       const byPrice = state.byPrice
 
       const filtred = goods.filter(({sizes, seasons}) => {
+        const filterBy = (arr: string[], sizeArr: string[]) => arr.some((el) => sizeArr.indexOf(el) >= 0)
+
         if (bySize.length && bySeason.length) {
-          return sizes.some((el) => bySize.indexOf(el) >= 0) && seasons.some((el) => bySeason.indexOf(el) >= 0)
+          return filterBy(sizes, bySize) && filterBy(seasons, bySeason)
         }
 
         if (bySeason.length && !bySize.length) {
-          return seasons.some((el) => bySeason.indexOf(el) >= 0)
+          return filterBy(seasons, bySeason)
         }
 
         if (bySize.length && !bySeason.length) {
-          return sizes.some((el) => bySize.indexOf(el) >= 0)
+          return filterBy(sizes, bySize)
         }
 
         return true
@@ -93,7 +95,7 @@ export default createStore<State>({
 
       const fitredByPrice = filtred.filter(({ price }) => Number(price) >= byPrice[0] && Number(price) <= byPrice[1])
 
-      state.sortedGoods = fitredByPrice.length ? fitredByPrice : filtred.length ? filtred : goods
+      state.sortedGoods = fitredByPrice.length ? fitredByPrice : filtred
     }
   }
 })

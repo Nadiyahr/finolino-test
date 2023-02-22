@@ -1,5 +1,5 @@
 <template>
-  <div class="c-fotter-list">
+  <div class="c-fotter-list u-text">
     <h6 class="c-fotter-list__title">{{ title }}</h6>
     <ul class="">
       <li v-for="(item, i) in list" :key="i" class="c-fotter-list__item">{{ item }}</li>
@@ -20,9 +20,10 @@ const { title, list } = defineProps<Props>();
 .c-fotter-list {
   color: $white;
 
-  @include onTablet {
+  @include moreThanTablet {
     text-align: start;
   }
+
   &__title {
     margin: $spacing-md 0;
     letter-spacing: -1px;
