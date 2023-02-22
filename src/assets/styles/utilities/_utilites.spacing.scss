@@ -47,19 +47,23 @@ $text-alignments: 'center', 'right', 'left';
   }
 }
 
+$position: (-top: 't', -left: 'l', -right: 'r', -bottom: 'b');
+
 .u-p {
   @for $space from 0 through 64 {
-    &-#{$space} {
-      padding: #{$space}px;
-    }
-    &-md-#{$space} {
-      @include onTablet {
-        padding: #{$space}px;
+    @each $position, $pos in $position {
+      &#{$pos}-#{$space} {
+        padding#{$position}: #{$space}px;
       }
-    }
-    &-lg-#{$space} {
-      @include onDesktop {
-        padding: #{$space}px;
+      &#{$pos}-md-#{$space} {
+        @include onTablet {
+          padding#{$position}: #{$space}px;
+        }
+      }
+      &#{$pos}-lg-#{$space} {
+        @include onDesktop {
+          padding#{$position}: #{$space}px;
+        }
       }
     }
   }
@@ -105,110 +109,44 @@ $text-alignments: 'center', 'right', 'left';
   }
 }
 
-.u-pt {
-  @for $space from 0 through 64 {
-    &-#{$space} {
-      padding-top: #{$space}px ;
-    }
-
-    &-md-#{$space} {
-      @include onTablet {
-        padding: #{$space}px;
-      }
-    }
-
-    &-lg-#{$space} {
-      @include onDesktop {
-        padding: #{$space}px;
-      }
-    }
-  }
-}
-
-.u-pb {
-  @for $space from 0 through 64 {
-    &-#{$space} {
-      padding-bottom: #{$space}px;
-    }
-    &-md-#{$space} {
-      @include onTablet {
-        padding: #{$space}px;
-      }
-    }
-
-    &-lg-#{$space} {
-      @include onDesktop {
-        padding: #{$space}px;
-      }
-    }
-  }
-}
-
-.u-pl {
-  @for $space from 0 through 64 {
-    &-#{$space} {
-      padding-left: #{$space}px;
-    }
-    &-md-#{$space} {
-      @include onTablet {
-        padding: #{$space}px;
-      }
-    }
-
-    &-lg-#{$space} {
-      @include onDesktop {
-        padding: #{$space}px;
-      }
-    }
-  }
-}
-
-.u-pr {
-  @for $space from 0 through 64 {
-    &-#{$space} {
-      padding-right: #{$space}px;
-    }
-
-    &-md-#{$space} {
-      @include onTablet {
-        padding: #{$space}px;
-      }
-    }
-
-    &-lg-#{$space} {
-      @include onDesktop {
-        padding: #{$space}px;
-      }
-    }
-  }
-}
 
 .u-m {
   &-auto {
     margin: auto;
 
-    
-      &-md-auto {
+      &-mtm-auto {
         @include moreThanTablet {
+          margin: auto;
+        }
+      }
+      &-md-auto {
+        @include onTablet {
+          margin: auto;
+        }
+      }
+      &-mtm-auto {
+        @include onDesktop {
           margin: auto;
         }
       }
   }
 
   @for $space from 0 through 64 {
-    &-#{$space} {
-      margin: #{$space}px;
+    @each $position, $pos in $position {
+    &#{$pos}-#{$space} {
+      margin#{$position}: #{$space}px;
     }
-    &-md-#{$space} {
+    &#{$pos}-md-#{$space} {
       @include onTablet {
-        margin: #{$space}px;
+        margin#{$position}: #{$space}px;
       }
     }
-    &-lg-#{$space} {
+    &#{$pos}-lg-#{$space} {
       @include onDesktop {
-        margin: #{$space}px;
+        margin#{$position}: #{$space}px;
       }
     }
+  }
   }
 }
 
@@ -267,81 +205,6 @@ $text-alignments: 'center', 'right', 'left';
     }
   }
 }
-
-.u-mt {
-  @for $space from 0 through 64 {
-    &-#{$space} {
-      margin-top: #{$space}px;
-    }
-    &-md-#{$space} {
-      @include onTablet {
-        margin-top: #{$space}px;
-      }
-    }
-    &-lg-#{$space} {
-      @include onDesktop {
-        margin-top: #{$space}px;
-      }
-    }
-  }
-}
-
-.u-mb {
-  @for $space from 0 through 64 {
-    &-#{$space} {
-      margin-bottom: #{$space}px;
-    }
-    &-md-#{$space} {
-      @include onTablet {
-        margin-bottom: #{$space}px;
-      }
-    }
-    &-lg-#{$space} {
-      @include onDesktop {
-        margin-bottom: #{$space}px;
-      }
-    }
-  }
-}
-
-.u-mr {
-  @for $space from 0 through 64 {
-    &-#{$space} {
-      margin-right: #{$space}px;
-    }
-    &-md-#{$space} {
-      @include onTablet {
-        margin-right: #{$space}px;
-      }
-    }
-    &-lg-#{$space} {
-      @include onDesktop {
-        margin-right: #{$space}px;
-      }
-    }
-  }
-}
-
-
-.u-ml {
-  @for $space from 0 through 64 {
-    &-#{$space} {
-      margin-left: #{$space}px;
-    }
-    &-md-#{$space} {
-      @include onTablet {
-        margin-left: #{$space}px;
-      }
-    }
-    &-lg-#{$space} {
-      @include onDesktop {
-        margin-left: #{$space}px;
-      }
-    }
-  }
-}
-
-
 
 .u-gap {
   @for $gap from 0 through 64 {

@@ -61,6 +61,7 @@ const toggleSearch = () => (openSearch.value = !openSearch.value);
 
   &__nav {
     position: relative;
+    background-color: $primary;
     z-index: 100;
   }
 

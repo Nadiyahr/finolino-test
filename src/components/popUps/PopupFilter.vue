@@ -103,7 +103,7 @@ onClickOutside(filterRef, () => closePopup());
   padding: 10px 0 8px;
   background-color: $white;
   color: $gray-darker;
-  z-index: 60;
+  z-index: 200;
 
   &__sizes {
     display: flex;
