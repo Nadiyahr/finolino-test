@@ -21,12 +21,12 @@
         ref="tagsRef"
         class="c-card__tags"
       >
-        <p>
+        <p class="u-p-0">
           <span class="c-card__season">Season:</span>
           {{}}
           <span class="c-card__tag">{{ item.seasons.join(', ') }}</span>
         </p>
-        <div>
+        <div class="u-flex u-gap-4 u-gap-md-6 u-pt-4">
           <CTagButton v-for="(size, i) in item.sizes" :key="i" :text="size" />
         </div>
       </div>
@@ -87,19 +87,22 @@ onClickOutside(tagsRef, () => triger(false), { ignore: [ignoreRef] });
 
   &__info {
     text-align: start;
-    padding: 16px;
+    padding: 10px 16px;
     border-top: 1px solid $gray;
+
+    @include moreThanTablet {
+      padding: 16px;
+    }
   }
 
   &__tags {
-    width: 100%;
-    height: fit-content;
     position: absolute;
-    bottom: -28%;
+    bottom: -26%;
     left: 0;
+    width: 100%;
     opacity: 1;
     text-align: start;
-    padding: 0 16px 8px;
+    padding: 8px 16px 10px;
     opacity: 1;
     background-color: #fff;
     z-index: 100;
@@ -111,7 +114,7 @@ onClickOutside(tagsRef, () => triger(false), { ignore: [ignoreRef] });
   }
 
   &__title {
-    @extend .u-color-dark;
+    color: $primary;
     font-size: 14px;
     line-height: 22px;
     font-weight: $fw-5;
@@ -123,7 +126,7 @@ onClickOutside(tagsRef, () => triger(false), { ignore: [ignoreRef] });
   }
 
   &__price {
-    @extend .u-color-dark;
+    color: $primary;
     font-size: 12px;
 
     @include moreThanTablet {
@@ -132,17 +135,25 @@ onClickOutside(tagsRef, () => triger(false), { ignore: [ignoreRef] });
   }
 
   &__season {
-    @extend .u-fs-xs;
+    font-size: 10px;
     color: $gray-darker;
+
+    @include onDesktop {
+      font-size: 14px;
+    }
   }
 
   &__tag {
-    @extend .u-fs-xs;
-    @extend .u-color-dark;
+    font-size: 10px;
+    color: $primary;
+    padding-top: $spacing-sm;
+    @include onDesktop {
+      font-size: 14px;
+    }
   }
 
   &__new {
-    @extend .u-color-ligt;
+    color: $text-white;
     width: 30%;
     height: 7%;
     font-size: 12px;

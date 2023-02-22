@@ -2,7 +2,7 @@
   <div ref="filterRef" class="c-popup">
     <ul>
       <li class="c-popup__item">
-        <p class="u-color-dark u-mb-md">Size</p>
+        <p class="u-color-dark u-mb-12">Size</p>
         <div class="c-popup__sizes">
           <CTagButton
             v-for="(size, i) in sizes"
@@ -15,8 +15,8 @@
         </div>
       </li>
       <li class="c-popup__item">
-        <p class="u-color-dark u-mb-md">Seasonality</p>
-        <div>
+        <p class="u-color-dark u-mb-12">Seasonality</p>
+        <div class="u-flex u-direction-col u-gap-8">
           <CCheckbox
             v-for="season in seasons"
             :lable="season"
@@ -28,10 +28,13 @@
         </div>
       </li>
       <li class="c-popup__item">
-        <p class="u-color-dark u-mb-md">Price</p>
+        <p class="u-color-dark u-mb-12">Price</p>
         <div>
-          <input type="number" v-model="min" class="input-range" />
-          <input type="number" v-model="max" class="input-range" />
+          <div class="u-flex u-gap-8 u-pb-12">
+            <input type="text" v-model="min" class="input-range" />
+            -
+            <input type="text" v-model="max" class="input-range" />
+          </div>
           <CRangeInput :min="min" :max="max" @apply="setRange" />
         </div>
       </li>
@@ -97,10 +100,16 @@ onClickOutside(filterRef, () => closePopup());
   min-width: 200px;
   width: fit-content;
   height: fit-content;
-  padding: 10px 0;
+  padding: 10px 0 8px;
   background-color: $white;
   color: $gray-darker;
-  z-index: 10;
+  z-index: 60;
+
+  &__sizes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
 
   &__item {
     padding: 4px 12px;
@@ -116,10 +125,9 @@ onClickOutside(filterRef, () => closePopup());
 .input-range {
   display: inline-block;
   width: 60px;
-  font-size: 14px;
-  font-weight: $fw-6;
+  font-size: 16px;
+  font-weight: $fw-5;
   text-align: center;
-  margin: 0 16px 20px 0;
   border: none;
   border-bottom: 2px solid $gray-darker;
   background-color: $white;

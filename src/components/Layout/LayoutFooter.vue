@@ -1,12 +1,12 @@
 <template>
   <footer class="c-footer">
-    <div class="grid grid--tablet grid--desktop u-mb-center">
+    <div class="grid grid--tablet grid--desktop u-text-center u-text-lg-start">
       <div
-        class="grid__item grid__item--1-2 grid__item--tablet-1-12 grid__item--desktop-1-5 u-mb-center"
+        class="grid__item grid__item--1-2 grid__item--tablet-1-12 grid__item--desktop-1-5 u-text-center"
       >
         <CLogo class="c-footer__logo" />
         <CIconButtonGroup v-if="!isMobile" :icons="icons" class="c-footer__icons" />
-        <p class="u-fw-light u-py-8 u-color-info u-fs-xs">
+        <p class="u-fw-light u-py-8 u-py-md-10 u-color-info u-fs-xs">
           &copy; {{ year }}. All rights reserved
         </p>
       </div>
@@ -25,11 +25,11 @@
       <div
         class="grid__item grid__item--1-2 grid__item--tablet-7-10 grid__item--desktop-10-12"
       >
-        <h6 v-if="isMobile" class="u-pb-5">FAQs</h6>
+        <h6 v-if="isMobile">FAQs</h6>
         <CFooterList v-else title="Contacts" :list="contacts" />
       </div>
-      <div class="grid__item grid__item--1-2 u-pb-5">
-        <CIconButtonGroup v-if="isMobile" :icons="icons" class="u-m-auto" />
+      <div class="grid__item grid__item--1-2">
+        <CIconButtonGroup v-if="isMobile" :icons="icons" class="u-m-auto u-my-md-auto" />
       </div>
     </div>
   </footer>

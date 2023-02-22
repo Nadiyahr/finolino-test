@@ -1,0 +1,358 @@
+
+$alignments: 'center', 'start', 'end';
+@each $alignment in $alignments {
+  .u-align {
+    &-#{$alignment} {
+      align-items: #{$alignment};
+    }
+  
+    &-md-#{$alignment} {
+      @include onTablet {
+        align-items: #{$alignment};
+      }
+    }
+  
+    &-lg-#{$alignment} {
+      @include onDesktop {
+        align-items: #{$alignment};
+      }
+    }
+  }
+} 
+
+$text-alignments: 'center', 'right', 'left';
+@each $text-alignment in $text-alignments {
+  .u-text {
+    &-#{$text-alignments} {
+      text-align: #{$text-alignments};
+    }
+  
+    &-md-#{$text-alignment} {
+      @include onTablet {
+        text-align: #{$text-alignment};
+      }
+    }
+  
+    &-lg-#{$text-alignment} {
+      @include onDesktop {
+        text-align: #{$text-alignment};
+      }
+    }
+  }
+}
+
+.u-p {
+  @for $space from 0 through 64 {
+    &-#{$space} {
+      padding: #{$space}px;
+    }
+    &-md-#{$space} {
+      @include onTablet {
+        padding: #{$space}px;
+      }
+    }
+    &-lg-#{$space} {
+      @include onDesktop {
+        padding: #{$space}px;
+      }
+    }
+  }
+}
+
+.u-py {
+  @for $space from 0 through 64 {
+    &-#{$space} {
+      padding: #{$space}px 0;
+    }
+
+    &-md-#{$space} {
+      @include onTablet {
+        padding: #{$space}px;
+      }
+    }
+
+    &-lg-#{$space} {
+      @include onDesktop {
+        padding: #{$space}px;
+      }
+    }
+  }
+}
+
+.u-px {
+  @for $space from 0 through 64 {
+    &-#{$space} {
+      padding: 0 #{$space}px;
+    }
+
+    &-md-#{$space} {
+      @include onTablet {
+        padding: #{$space}px;
+      }
+    }
+
+    &-lg-#{$space} {
+      @include onDesktop {
+        padding: #{$space}px;
+      }
+    }
+  }
+}
+
+.u-pt {
+  @for $space from 0 through 64 {
+    &-#{$space} {
+      padding-top: #{$space}px ;
+    }
+
+    &-md-#{$space} {
+      @include onTablet {
+        padding: #{$space}px;
+      }
+    }
+
+    &-lg-#{$space} {
+      @include onDesktop {
+        padding: #{$space}px;
+      }
+    }
+  }
+}
+
+.u-pb {
+  @for $space from 0 through 64 {
+    &-#{$space} {
+      padding-bottom: #{$space}px;
+    }
+    &-md-#{$space} {
+      @include onTablet {
+        padding: #{$space}px;
+      }
+    }
+
+    &-lg-#{$space} {
+      @include onDesktop {
+        padding: #{$space}px;
+      }
+    }
+  }
+}
+
+.u-pl {
+  @for $space from 0 through 64 {
+    &-#{$space} {
+      padding-left: #{$space}px;
+    }
+    &-md-#{$space} {
+      @include onTablet {
+        padding: #{$space}px;
+      }
+    }
+
+    &-lg-#{$space} {
+      @include onDesktop {
+        padding: #{$space}px;
+      }
+    }
+  }
+}
+
+.u-pr {
+  @for $space from 0 through 64 {
+    &-#{$space} {
+      padding-right: #{$space}px;
+    }
+
+    &-md-#{$space} {
+      @include onTablet {
+        padding: #{$space}px;
+      }
+    }
+
+    &-lg-#{$space} {
+      @include onDesktop {
+        padding: #{$space}px;
+      }
+    }
+  }
+}
+
+.u-m {
+  &-auto {
+    margin: auto;
+
+    
+      &-md-auto {
+        @include moreThanTablet {
+          margin: auto;
+        }
+      }
+  }
+
+  @for $space from 0 through 64 {
+    &-#{$space} {
+      margin: #{$space}px;
+    }
+    &-md-#{$space} {
+      @include onTablet {
+        margin: #{$space}px;
+      }
+    }
+    &-lg-#{$space} {
+      @include onDesktop {
+        margin: #{$space}px;
+      }
+    }
+  }
+}
+
+.u-my {
+  &-auto {
+    margin: auto 0;
+  }
+
+  &-md-auto {
+    @include moreThanTablet {
+      margin: auto 0;
+    }
+  }
+
+  @for $space from 0 through 64 {
+    &-#{$space} {
+      margin: #{$space}px 0;
+    }
+    &-md-#{$space} {
+      @include onTablet {
+        margin: #{$space}px 0;
+      }
+    }
+    &-lg-#{$space} {
+      @include onDesktop {
+        margin: #{$space}px 0;
+      }
+    }
+  }
+}
+
+.u-mx {
+  &-auto {
+    margin: 0 auto;
+  }
+
+  &-md-auto {
+    @include moreThanTablet {
+      margin: auto 0;
+    }
+  }
+
+  @for $space from 0 through 64 {
+    &-#{$space} {
+      margin: 0 #{$space}px;
+    }
+    &-md-#{$space} {
+      @include onTablet {
+        margin: 0 #{$space}px;
+      }
+    }
+    &-lg-#{$space} {
+      @include onDesktop {
+        margin: 0 #{$space}px;
+      }
+    }
+  }
+}
+
+.u-mt {
+  @for $space from 0 through 64 {
+    &-#{$space} {
+      margin-top: #{$space}px;
+    }
+    &-md-#{$space} {
+      @include onTablet {
+        margin-top: #{$space}px;
+      }
+    }
+    &-lg-#{$space} {
+      @include onDesktop {
+        margin-top: #{$space}px;
+      }
+    }
+  }
+}
+
+.u-mb {
+  @for $space from 0 through 64 {
+    &-#{$space} {
+      margin-bottom: #{$space}px;
+    }
+    &-md-#{$space} {
+      @include onTablet {
+        margin-bottom: #{$space}px;
+      }
+    }
+    &-lg-#{$space} {
+      @include onDesktop {
+        margin-bottom: #{$space}px;
+      }
+    }
+  }
+}
+
+.u-mr {
+  @for $space from 0 through 64 {
+    &-#{$space} {
+      margin-right: #{$space}px;
+    }
+    &-md-#{$space} {
+      @include onTablet {
+        margin-right: #{$space}px;
+      }
+    }
+    &-lg-#{$space} {
+      @include onDesktop {
+        margin-right: #{$space}px;
+      }
+    }
+  }
+}
+
+
+.u-ml {
+  @for $space from 0 through 64 {
+    &-#{$space} {
+      margin-left: #{$space}px;
+    }
+    &-md-#{$space} {
+      @include onTablet {
+        margin-left: #{$space}px;
+      }
+    }
+    &-lg-#{$space} {
+      @include onDesktop {
+        margin-left: #{$space}px;
+      }
+    }
+  }
+}
+
+
+
+.u-gap {
+  @for $gap from 0 through 64 {
+    &-#{$gap} {
+      gap: #{$gap}px;
+    }
+
+    &-md-#{$gap} {
+      @include onTablet {
+        gap: #{$gap}px;
+      }
+    }
+
+    &-lg-#{$gap} {
+      @include onDesktop {
+        gap: #{$gap}px;
+      }
+    }
+  }
+}

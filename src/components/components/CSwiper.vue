@@ -1,5 +1,5 @@
 <template>
-  <div class="u-text-center u-pt-1">
+  <div class="u-text-center u-pt-20">
     <h2>
       The Gifting<br v-if="mobile" />
       Sale
@@ -18,7 +18,7 @@
     >
       <swiper-slide v-for="(img, i) in images" :key="i" class="u-relative">
         <img :src="`./images/${img}.png`" :alt="img" />
-        <div class="c-label u-text-l u-p-lg">
+        <div class="c-label u-text-l u-p-24">
           <h4>{{ title }}</h4>
           <p>1000 UAH and under</p>
         </div>

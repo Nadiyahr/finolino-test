@@ -39,13 +39,13 @@ const { lable, value, disabled = false } = defineProps<Props>();
 .c-checkbox {
   display: flex;
   align-items: center;
+  font-weight: $fw-4;
 
   &__lable {
     display: inline-flex;
     gap: 12px;
     cursor: pointer;
     align-items: center;
-    margin: 4px 0;
   }
 
   &__span {

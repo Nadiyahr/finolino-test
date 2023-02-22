@@ -1,5 +1,5 @@
 <template>
-  <section class="c-bg-catalog u-pt-2">
+  <section class="c-bg-catalog u-pt-8">
     <div class="c-portal">
       <p class="u-color-info u-capitalizze">{{ path.join(' > ') }}</p>
     </div>
@@ -8,8 +8,8 @@
     </div>
     <div class="c-portal">
       <div class="u-flex u-jsfy-btwn">
-        <div class="u-flex u-gap-sm">
-          <div v-for="(tags, idx) in filtresTags" :key="idx" class="u-flex u-gap-sm">
+        <div class="u-flex u-gap-8">
+          <div v-for="(tags, idx) in filtresTags" :key="idx" class="u-flex u-gap-8">
             <CTagButton
               v-for="(tag, i) in tags"
               :text="tag"

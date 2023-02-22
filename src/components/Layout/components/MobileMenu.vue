@@ -36,7 +36,7 @@ const contacts = ['+11 (011) 111 11 11 ', '+22 (022) 222 22 22', 'finolino@finol
   &__content {
     display: flex;
     flex-direction: column;
-    @extend .u-gap-menu;
+    gap: 30vh;
   }
 }
 </style>

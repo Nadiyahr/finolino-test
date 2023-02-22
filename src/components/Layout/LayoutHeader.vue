@@ -57,14 +57,16 @@ const toggleSearch = () => (openSearch.value = !openSearch.value);
 
 <style scoped lang="scss">
 .c-header {
-  @extend .u-bg-dark;
+  background-color: $primary;
 
   &__nav {
-    @extend .u-relative, .u-z-100;
+    position: relative;
+    z-index: 100;
   }
 
   &__container {
-    @extend .u-flex, .u-jsfy-btwn;
+    display: flex;
+    justify-content: space-between;
     padding: 8px 0;
 
     @include onDesktop {
@@ -73,15 +75,19 @@ const toggleSearch = () => (openSearch.value = !openSearch.value);
   }
 
   &__buttons {
-    @extend .u-flex, .u-align-center;
+    display: flex;
+    align-items: center;
   }
 
   &__logo {
-    @extend .u-w-fit, .u-my-auto, .u-pointer;
+    max-width: fit-content;
+    margin: auto 0;
+    cursor: pointer;
   }
 
   &__search {
-    @extend .u-w-30, .u-my-auto;
+    width: 30%;
+    margin: auto 0;
   }
 }
 .fade-enter-from,

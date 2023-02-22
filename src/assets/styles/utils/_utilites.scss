@@ -104,6 +104,10 @@
   justify-content: space-between;
 }
 
+.u-direction-col {
+  flex-direction: column;
+}
+
 .u-gap-sm {
   gap: 8px;
 }
@@ -135,71 +139,12 @@
 .u-h-110 {
   height: 110vh;
 }
-
-.u-py-8 {
-  padding: 8px 0;
-
-  @include over400px {
-    padding: 10px 0;
-  }
-}
-
-.u-pt-2 {
-  padding-top: 2px;
-}
-
-.u-pl-1 {
-  padding-left: $spacing-unit;
-}
-
-.u-pt-1 {
-  padding-top: 20px;
-}
-
-.u-pb-5 {
-  padding-bottom: $spacing-xl;
-}
-.u-p-xl {
-  padding: $spacing-xl;
-}
-
-.u-mb-md {
-  margin-bottom: $spacing-md;
-}
-
-.u-p-lg {
-  padding: $spacing-lg;
-}
-
-.u-p-md {
-  padding: $spacing-md;
-}
-
-.u-p-sm {
-  padding: $spacing-unit;
-}
-
-.u-mb-center {
-  text-align: center;
-  @include onDesktop {
-    text-align: start;
-  }
-}
-
 .u-m-auto {
   margin: 0 auto !important;
 
   @include moreThanTablet {
     margin: auto 0;
   }
-}
-
-.u-mt-8 {
-  margin-top: $spacing-sm;
-}
-
-.u-ml-5 {
-  margin-left: 5%;
 }
 
 .u-fw-light {
@@ -224,7 +169,10 @@
 }
 
 .u-fs-xs {
-  font-size: 14px;
+  font-size: 10px;
+  @include onDesktop {
+    font-size: 14px;
+  }
 }
 
 .u-z-100 {

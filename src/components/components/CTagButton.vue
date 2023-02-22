@@ -41,7 +41,7 @@ const { text, colorGray = false, active = false, cross = false } = defineProps<P
   align-items: center;
   gap: 4px;
   padding: 0 4px;
-  margin: $spacing-unit;
+  /* margin: $spacing-unit; */
   margin-left: 0;
   font-weight: 400;
   font-size: 16px;
@@ -54,13 +54,13 @@ const { text, colorGray = false, active = false, cross = false } = defineProps<P
   }
 
   &--filter {
-    margin-right: 10px;
+    /* margin-right: 10px; */
     color: $gray-darker;
     border-color: $gray-darker;
   }
 
   &--card {
-    @extend .u-color-card;
+    color: $text-card;
     border-color: $gray;
   }
 
