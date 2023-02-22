@@ -34,46 +34,6 @@
   text-align: center;
 }
 
-.u-color-dark {
-  color: $primary;
-}
-
-.u-color-gray {
-  color: $secondary;
-}
-
-.u-color-info {
-  color: $info;
-}
-
-.u-color-ligt {
-  color: $text-white;
-}
-
-.u-color-card {
-  color: $text-card;
-}
-
-.u-bg-btn {
-  background-color: $button;
-}
-
-.u-bg-trasp {
-  background-color: $bg-trasp;
-}
-
-.u-bg-trasparent {
-  background-color: transparent;
-}
-
-.u-bg-dark {
-  background-color: $primary;
-}
-
-.u-bg-ligt {
-  background-color: $secondary;
-}
-
 .u-bg-dark-img {
   @include bg-img;
   background-color: $primary;

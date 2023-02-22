@@ -21,7 +21,6 @@ export default createStore<State>({
   },
   getters: {
     getOrderFilter: (state) => state.ordering,
-    getFiters: (state) => ({ sizes: state.bySize, seasons: state.bySeason, price: state.byPrice })
   },
   actions: {
     SET_ORDERING: function ({commit}, payload) {
@@ -38,20 +37,21 @@ export default createStore<State>({
     SET_ORDERING(state, payload) {
       state.ordering = payload
     },
-    SORT_GOODS(state, payload = state.sortedGoods) {
+    SORT_GOODS(state, payload) {
       const clone = [...payload]
       const order = state.ordering
+
       const sortBy = {
         'Newest': () => clone.sort((prev, next) => Date.parse(next.update_date) - Date.parse(prev.update_date)),
         'A-Z': () => clone.sort((prev, next) => prev.title.localeCompare(next.title)),
         'Z-A': () => clone.sort((prev, next) => next.title.localeCompare(prev.title))
       }
-      
+
       state.sortedGoods = sortBy[order]()
     },
     SET_FILTER_GOODS(state, payload: {type: Filters, value: string | number[]}) {
       if (typeof payload.value !== 'string') {
-        state[payload.type] = payload.value as string[] & number[]
+        state[payload.type] = payload.value as (string[] & number[])
         return
       }
 
@@ -63,10 +63,10 @@ export default createStore<State>({
         arr.push(payload.value as string);
       }
 
-      state[payload.type] = arr as string[] & number[]
+      state[payload.type] = arr as (string[] & number[])
     },
     SET_APPLAY(state) {
-      const priceFilter = state.byPrice.length ? [state.byPrice.join('-')]: []
+      const priceFilter = state.byPrice.length ? [state.byPrice.join('-')] : []
       state.filterTags = { bySize: state.bySize, bySeason: state.bySeason, byPrice: priceFilter }
 
       let goods = [...state.goods]

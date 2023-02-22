@@ -1,7 +1,5 @@
 <template>
-  <Default>
-    <Catalog />
-  </Default>
+  <Catalog />
 </template>
 
 <script setup lang="ts">

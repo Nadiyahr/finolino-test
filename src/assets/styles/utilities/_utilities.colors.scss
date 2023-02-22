@@ -1,0 +1,17 @@
+$colors: ($black: 'black', $gray-darker: 'info', $gray: 'secondary', $trasparent: 'semitrasparent', $dark: 'dark', $orange: 'orange', $white: 'white', trasparent: trasparent);
+
+.u-color {
+  @each $colors, $color in $colors {
+    &-#{$color} {
+      color: #{$colors};
+    }
+  }
+}
+
+.u-bg {
+  @each $colors, $color in $colors {
+    &-#{$color} {
+      background-color: #{$colors};
+    }
+  }
+}

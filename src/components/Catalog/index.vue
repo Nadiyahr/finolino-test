@@ -4,7 +4,7 @@
       <p class="u-color-info u-capitalizze">{{ path.join(' > ') }}</p>
     </div>
     <div class="c-portal">
-      <h5 class="u-color-dark u-capitalizze">{{ title }}</h5>
+      <h5 class="u-color-black u-capitalizze">{{ title }}</h5>
     </div>
     <div class="c-portal">
       <div class="u-flex u-jsfy-btwn">

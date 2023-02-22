@@ -2,7 +2,7 @@
   <div ref="filterRef" class="c-popup">
     <ul>
       <li class="c-popup__item">
-        <p class="u-color-dark u-mb-12">Size</p>
+        <p class="u-color-black u-mb-12">Size</p>
         <div class="c-popup__sizes">
           <CTagButton
             v-for="(size, i) in sizes"
@@ -15,7 +15,7 @@
         </div>
       </li>
       <li class="c-popup__item">
-        <p class="u-color-dark u-mb-12">Seasonality</p>
+        <p class="u-color-black u-mb-12">Seasonality</p>
         <div class="u-flex u-direction-col u-gap-8">
           <CCheckbox
             v-for="season in seasons"
@@ -28,7 +28,7 @@
         </div>
       </li>
       <li class="c-popup__item">
-        <p class="u-color-dark u-mb-12">Price</p>
+        <p class="u-color-black u-mb-12">Price</p>
         <div>
           <div class="u-flex u-gap-8 u-pb-12">
             <input type="text" v-model="min" class="input-range" />

@@ -1,5 +1,5 @@
 <template>
-  <Default>
+  <div>
     <TopBanner />
     <HalfBanner />
     <BottomSection>
@@ -7,7 +7,7 @@
       <PopularItems />
       <Subscribe />
     </BottomSection>
-  </Default>
+  </div>
 </template>
 
 <script setup lang="ts">

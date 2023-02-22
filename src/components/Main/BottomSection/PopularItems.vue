@@ -1,5 +1,5 @@
 <template>
-  <section class="c-pop u-bg-trasparent">
+  <section class="c-pop u-bg-semitrasparent">
     <h2>Popular items</h2>
     <div class="grid grid--desktop grid--tablet c-pop__container">
       <div

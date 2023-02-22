@@ -9,7 +9,7 @@
         class="c-subscribe__imput"
         placeholder="Enter Your Email"
       />
-      <div class="u-color-ligt">
+      <div class="u-color-white">
         <input
           type="checkbox"
           id="checkbox"
