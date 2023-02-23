@@ -1,5 +1,5 @@
 <template>
-  <div ref="filterRef" class="c-popup">
+  <div ref="popupRef" class="c-popup">
     <ul>
       <li class="c-popup__item">
         <p class="u-color-black u-mb-12">Size</p>
@@ -31,11 +31,11 @@
         <p class="u-color-black u-mb-12">Price</p>
         <div>
           <div class="u-flex u-gap-8 u-pb-12">
-            <input type="text" v-model="min" class="input-range" />
+            <input type="text" v-model="min" class="input-range" @input="setKey" />
             -
-            <input type="text" v-model="max" class="input-range" />
+            <input type="text" v-model="max" class="input-range" @input="setKey" />
           </div>
-          <CRangeInput :min="min" :max="max" @apply="setRange" />
+          <CRangeInput :min="min" :max="max" @apply="setRange" :key="key" />
         </div>
       </li>
       <li class="c-popup__item u-flex u-align-end">
@@ -51,7 +51,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, Ref, ref } from 'vue';
+import { computed, ref, watchEffect } from 'vue';
 import { useStore } from 'vuex';
 import { onClickOutside } from '@vueuse/core';
 import CTagButton from '../components/CTagButton.vue';
@@ -71,6 +71,8 @@ const selectedSeasons = computed(() => store.state.bySeason);
 
 const min = ref(250);
 const max = ref(2000);
+const key = computed(() => min.value + max.value);
+
 const setRange = (newRange: number[]) => {
   min.value = newRange[0];
   max.value = newRange[1];
@@ -78,11 +80,16 @@ const setRange = (newRange: number[]) => {
   store.commit('SET_FILTER_GOODS', { type: 'byPrice', value: newRange });
 };
 
+const setKey = () => {
+  watchEffect(() => key.value);
+  setRange([+min.value, +max.value]);
+};
+
 const select = (type: Filters, value: string) => {
   store.commit('SET_FILTER_GOODS', { type, value });
 };
 
-const filterRef = ref(null);
+const popupRef = ref(null);
 const closePopup = () => emit('close');
 
 const applyFiltres = () => {
@@ -90,7 +97,7 @@ const applyFiltres = () => {
   closePopup();
 };
 
-onClickOutside(filterRef, () => closePopup());
+onClickOutside(popupRef, () => closePopup());
 </script>
 
 <style scoped lang="scss">

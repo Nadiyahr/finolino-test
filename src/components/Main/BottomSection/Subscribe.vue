@@ -31,11 +31,6 @@
 import { watch, ref } from 'vue';
 import CButtonRouned from '@/components/components/CButtonRouned.vue';
 
-// const form = ref({
-//   email: '',
-//   terms: false
-// })
-
 const email = ref('');
 const terms = ref(false);
 const disabeled = ref(true);

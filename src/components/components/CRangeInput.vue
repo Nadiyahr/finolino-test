@@ -1,5 +1,6 @@
 <template>
   <Slider
+    id="slider"
     v-model="range"
     tooltipPosition="bottom"
     :min="100"
@@ -13,16 +14,18 @@
 
 <script setup lang="ts">
 import Slider from '@vueform/slider';
-import { ref } from 'vue';
+import { ref, watch, watchEffect } from 'vue';
 
 interface Props {
-  max?: number;
-  min?: number;
+  max?: number | string;
+  min?: number | string;
 }
+
+const emit = defineEmits(['apply']);
 
 const { min = 250, max = 2000 } = defineProps<Props>();
 
-const range = ref<unknown>([min, max]);
+const range = ref<unknown>([+min, +max]);
 </script>
 
 <style>
