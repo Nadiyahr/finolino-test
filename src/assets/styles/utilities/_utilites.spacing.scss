@@ -23,8 +23,8 @@ $alignments: 'center', 'start', 'end';
 $text-alignments: 'center', 'right', 'left';
 @each $text-alignment in $text-alignments {
   .u-text {
-    &-#{$text-alignments} {
-      text-align: #{$text-alignments};
+    &-#{$text-alignment} {
+      text-align: #{$text-alignment};
     }
   
     &-md-#{$text-alignment} {

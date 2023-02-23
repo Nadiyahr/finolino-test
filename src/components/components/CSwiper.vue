@@ -1,5 +1,5 @@
 <template>
-  <div class="u-text-center u-pt-20">
+  <div class="u-pt-20 u-text-center">
     <h2>
       The Gifting<br v-if="mobile" />
       Sale
