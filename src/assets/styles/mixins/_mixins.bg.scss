@@ -1,0 +1,27 @@
+@mixin bg-img {
+  background-image: url('/images/LETTERS.svg');
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: 100%;
+
+}
+
+@mixin bg-top-banner {
+  background-image: url('@/assets/images/top-mobile.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  @include onTablet() {
+    background-image: url('@/assets/images/top.png');
+    background-repeat: no-repeat;
+    background-position: 60% 0;
+    background-size: cover;
+  }
+
+  @include onDesktop {
+    background-image: url('/icons/o.svg'), url('/icons/f.svg'), url('/icons/l.svg'), url('@/assets/images/top.png'), linear-gradient(to right, #D28948, #D29053);
+    background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
+    background-position: 0 -12%, 0 107%, 100% 1%, center, 100%;
+    background-size: 479px, 592px, 322px, contain, 100%;
+  }
+}

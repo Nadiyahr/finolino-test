@@ -148,13 +148,15 @@
 }
 
 h1 {
-  font-weight: $fw-7;
-  font-size: $fs-xl;
-  line-height: $fs-xl;
+  @include font($fs-xl, $fw-7, $fs-xl);
+  // font-weight: $fw-7;
+  // font-size: $fs-xl;
+  // line-height: $fs-xl;
 
   @include onTablet {
-    font-size: $fs-xxl;
-    line-height: $fs-xxl;
+    @include font($fs-xxl, $fw-7, $fs-xxl);
+    // font-size: $fs-xxl;
+    // line-height: $fs-xxl;
   }
 }
 

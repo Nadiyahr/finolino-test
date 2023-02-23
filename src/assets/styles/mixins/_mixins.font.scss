@@ -1,0 +1,7 @@
+@mixin font ($size, $weight, $lineH) {
+  font-size: $size;
+  font-weight: $weight;
+  line-height: $lineH;
+  // color: $info;
+  text-transform: capitalize;
+}
