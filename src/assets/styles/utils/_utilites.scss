@@ -18,20 +18,20 @@
   text-transform: capitalize;
 }
 
+.u-no-decor {
+  text-decoration: none;
+}
+
 .u-align-center {
   align-items: center;
 }
 
-.u-text-r {
-  text-align: right !important;
+.u-flex-wrap-rev {
+  flex-wrap: wrap-reverse;
 }
 
-.u-text-l {
-  text-align: left !important;
-}
-
-.u-text-center {
-  text-align: center;
+.u-flex-wrap {
+  flex-wrap: wrap;
 }
 
 .u-bg-dark-img {

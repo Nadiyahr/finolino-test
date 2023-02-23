@@ -91,6 +91,7 @@ onClickOutside(tagsRef, () => triger(false), { ignore: [ignoreRef] });
   }
 
   &__info {
+    width: 100%;
     text-align: start;
     padding: 10px 16px;
     border-top: 1px solid $gray;
@@ -127,6 +128,9 @@ onClickOutside(tagsRef, () => triger(false), { ignore: [ignoreRef] });
     font-size: 14px;
     line-height: 22px;
     font-weight: $fw-5;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 
     @include moreThanTablet {
       font-size: 16px;
