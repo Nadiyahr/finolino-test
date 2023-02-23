@@ -2,6 +2,10 @@
   position: relative;
 }
 
+.u-overflow-hiden {
+  overflow: hidden;
+}
+
 .u-inline-block {
   display: inline-block;
 }
@@ -72,6 +76,7 @@
   gap: 8px;
 }
 
+
 .u-w-fit {
   max-width: fit-content;
 }
@@ -90,6 +95,10 @@
 
 .u-w-100 {
   width: 100%;
+}
+
+.u-h-75 {
+  height: 75%;
 }
 
 .u-h-100 {

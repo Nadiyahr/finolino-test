@@ -1,14 +1,20 @@
 <template>
-  <div class="u-relative">
+  <div
+    class="u-relative"
+    @mouseover="triger(true)"
+    @mouseleave="triger(false)"
+    @click.stop="triger(true)"
+  >
     <div ref="ignoreRef" class="c-card">
-      <div v-if="item.is_new" class="c-card__new">New</div>
-      <div class="c-card__img" :style="{ '--bgImage': `url('${item.image}')` }"></div>
-      <div
-        class="c-card__info"
-        @mouseover="triger(true)"
-        @mouseleave="triger(false)"
-        @click.stop="triger(true)"
-      >
+      <div class="u-h-75 u-overflow-hiden u-relative">
+        <div v-if="item.is_new" class="c-card__new">New</div>
+        <div
+          class="c-card__img"
+          :class="{ 'c-card__img--hover': hover }"
+          :style="{ '--bgImage': `url('${item.image}')` }"
+        ></div>
+      </div>
+      <div class="c-card__info">
         <h6 class="c-card__title">{{ title }}</h6>
         <p class="c-card__price">{{ item.price }} UAH</p>
       </div>
@@ -68,6 +74,10 @@ onClickOutside(tagsRef, () => triger(false), { ignore: [ignoreRef] });
   cursor: pointer;
   @include shadow;
 
+  &:hover {
+    transition: all 0.3s easy-in-out;
+  }
+
   @include onTablet {
     height: 300px;
   }
@@ -77,14 +87,15 @@ onClickOutside(tagsRef, () => triger(false), { ignore: [ignoreRef] });
   }
 
   &__img {
-    height: 75%;
+    height: 100%;
     background-image: var(--bgImage), url('/images/finolino.svg'),
       radial-gradient(circle, #d7cfd2 0%, #d1ddec 100%);
     background-repeat: no-repeat, space round;
     background-position: center 0, center;
     background-size: cover, 90%;
+    transition: transform 0.5s ease-out;
 
-    &:hover {
+    &--hover {
       transform: scale(1.1);
       transition: transform 0.5s ease-out;
     }
@@ -175,34 +186,38 @@ onClickOutside(tagsRef, () => triger(false), { ignore: [ignoreRef] });
   }
 
   &__new {
-    color: $text-white;
-    width: 30%;
-    height: 7%;
-    font-size: 12px;
     position: absolute;
     top: 0;
     left: 0;
+    color: $text-white;
+    width: 30%;
+    height: 10%;
+    font-size: 12px;
     padding: 0 12px;
     line-height: 16px;
     background-color: $orange;
+    z-index: 99;
 
     @include moreThanTablet {
       font-size: 16px;
       line-height: 25px;
-      padding: 0 16px;
+      padding: 2px 16px;
     }
   }
 }
 
 .slide-fade-enter-active {
-  transition: all 0.3s ease-out;
+  transition: all 0.5s ease-in-out;
 }
 .slide-fade-leave-active {
-  transition: all 0.8s cubic-bezier(1, 0.7, 0.8, 1);
+  transition: all 0.5s ease-in-out;
 }
-.slide-fade-enter,
+.slide-fade-enter-from,
 .slide-fade-leave-to {
-  /* transform: translateY(-10px); */
   opacity: 0;
+}
+.slide-fade-enter-to,
+.slide-fade-leave-from {
+  opacity: 1;
 }
 </style>
