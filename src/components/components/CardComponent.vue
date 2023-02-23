@@ -32,7 +32,7 @@
           {{}}
           <span class="c-card__tag">{{ item.seasons.join(', ') }}</span>
         </p>
-        <div class="u-flex u-gap-4 u-gap-md-6 u-pt-4">
+        <div class="u-flex u-gap-4 u-gap-md-6 u-pt-6">
           <CTagButton v-for="(size, i) in item.sizes" :key="i">{{ size }}</CTagButton>
         </div>
       </div>
@@ -104,7 +104,7 @@ onClickOutside(tagsRef, () => trigger(false), { ignore: [ignoreRef] });
   &__info {
     width: 100%;
     text-align: start;
-    padding: 10px 16px;
+    padding: 8px;
     border-top: 1px solid $gray;
 
     @include moreThanTablet {
@@ -119,11 +119,15 @@ onClickOutside(tagsRef, () => trigger(false), { ignore: [ignoreRef] });
     width: 100%;
     opacity: 1;
     text-align: start;
-    padding: 8px 16px 10px;
+    padding: 8px;
     opacity: 1;
     background-color: #fff;
     z-index: 100;
     @include shadow;
+
+    @include moreThanTablet {
+      padding: 16px;
+    }
 
     @include onTablet {
       bottom: -22%;
@@ -160,6 +164,7 @@ onClickOutside(tagsRef, () => trigger(false), { ignore: [ignoreRef] });
 
   &__season {
     font-size: 10px;
+    letter-spacing: -0.3px;
     color: $gray-darker;
 
     @include onTablet {
@@ -174,6 +179,7 @@ onClickOutside(tagsRef, () => trigger(false), { ignore: [ignoreRef] });
   &__tag {
     font-size: 10px;
     color: $primary;
+    letter-spacing: -0.3px;
     padding-top: $spacing-sm;
 
     @include onTablet {
@@ -193,7 +199,7 @@ onClickOutside(tagsRef, () => trigger(false), { ignore: [ignoreRef] });
     width: 30%;
     height: 10%;
     font-size: 12px;
-    padding: 0 12px;
+    padding: 2px 10px;
     line-height: 16px;
     background-color: $orange;
     z-index: 49;

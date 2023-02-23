@@ -18,11 +18,11 @@ import CButtonRouned from '../components/CButtonRouned.vue';
 <style scoped lang="scss">
 .c-top-container {
   width: 100%;
-  padding-top: 60vh;
+  padding-top: 50vh;
 
   @include onTablet {
     width: 100%;
-    padding-top: 65vh;
+    padding-top: 60vh;
   }
 
   @include onDesktop {
@@ -33,11 +33,12 @@ import CButtonRouned from '../components/CButtonRouned.vue';
 
 .c-bg-img-combine {
   width: 100vw;
-  height: 92vh;
+  height: 90vh;
+  min-height: 100vw;
   @include bg-top-banner;
 
   @include onTablet {
-    height: 100vh;
+    height: 95vh;
   }
 
   @include onDesktop {

@@ -38,11 +38,12 @@ const buttonClass = computed(() =>
   height: fit-content;
   text-align: start;
   letter-spacing: -1px;
-  line-height: 28px;
+  line-height: 20px;
   text-transform: uppercase;
   background-color: $black;
   color: $white;
   border: none;
+
   &:hover {
     transform: none;
   }
@@ -67,11 +68,15 @@ const buttonClass = computed(() =>
     justify-content: space-between;
     text-align: center;
     align-items: center;
-    font-size: $base-fs;
+    font-size: 14px;
     line-height: $base-fs;
     padding: 0 8px;
     line-height: 28px;
     background-image: unset;
+
+    @include moreThanTablet {
+      font-size: $base-fs;
+    }
   }
 }
 </style>

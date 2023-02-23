@@ -35,13 +35,13 @@
         </div>
         <div class="c-btn-group u-pt-10 u-md-pt-0">
           <div class="c-btn-group__container">
-            <CButtonHeader width="100px" @on-click="openFilterPopup"
+            <CButtonHeader :width="buttonWidth" @on-click="openFilterPopup"
               >filters</CButtonHeader
             >
             <PopupFilter v-if="isFilterOpen" @close="isFilterOpen = !isFilterOpen" />
           </div>
           <div class="c-btn-group__container">
-            <CButtonHeader width="100px" @on-click="isNevestOpen = !isNevestOpen">
+            <CButtonHeader :width="buttonWidth" @on-click="isNevestOpen = !isNevestOpen">
               {{ sortBy }}
             </CButtonHeader>
             <PopupNewest v-if="isNevestOpen" @close="isNevestOpen = !isNevestOpen" />
@@ -65,6 +65,7 @@ import { Good } from '@/vite-env';
 import { ref, watch, onMounted, computed } from 'vue';
 import { useRoute } from 'vue-router';
 import { useStore } from 'vuex';
+import breakpoints from '@/plugins/breakpoints';
 import CardComponent from '@/components/components/CardComponent.vue';
 import CButtonHeader from '@/components/components/CButtonHeader.vue';
 import PopupNewest from '@/components/popUps/PopupNewest.vue';
@@ -73,10 +74,12 @@ import CTagButton from '../components/CTagButton.vue';
 
 const route = useRoute();
 const store = useStore();
+const isMobile = breakpoints.between('mobile', 'tablet');
 const isNevestOpen = ref(false);
 const isFilterOpen = ref(false);
 
 const filtresTags = computed(() => store.state.filterTags);
+const buttonWidth = computed(() => (isMobile ? '80px' : '100px'));
 
 let sortBy = ref(store.state.ordering);
 let filtredGoods = ref<Good[]>([]);

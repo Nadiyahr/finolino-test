@@ -34,7 +34,7 @@ const { colorGray = false, active = false, cross = false } = defineProps<Props>(
 <style scoped lang="scss">
 .c-tag {
   display: inline-flex;
-  min-width: 20px;
+  min-width: 25px;
   height: fit-content;
   text-align: center;
   justify-content: center;
