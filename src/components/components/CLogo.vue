@@ -1,5 +1,5 @@
 <template>
-  <div @click="$router.push('/')" class="u-w-fit u-h-fit u-pointer u-py-8">
+  <RouterLink to="/" class="u-w-fit u-h-fit u-pointer u-py-8">
     <CIcon
       id="finolino"
       :width="logoWidth"
@@ -7,7 +7,7 @@
       :viewBox="`0 0 ${logoWidth} ${logoHeight}`"
       class="logo"
     />
-  </div>
+  </RouterLink>
 </template>
 
 <script setup lang="ts">

@@ -8,12 +8,12 @@
       'c-tag--portal': cross,
     }"
   >
-    {{ text }}
+    <slot />
     <CIcon
       v-if="cross"
       id="cross"
-      width="8"
-      height="8"
+      width="12"
+      height="11"
       class="c-tag__icon"
       @click="$emit('on-click')"
     />
@@ -23,13 +23,12 @@
 <script setup lang="ts">
 import CIcon from './CIcon.vue';
 interface Props {
-  text: string;
   colorGray?: boolean;
   active?: boolean;
   cross?: boolean;
 }
 
-const { text, colorGray = false, active = false, cross = false } = defineProps<Props>();
+const { colorGray = false, active = false, cross = false } = defineProps<Props>();
 </script>
 
 <style scoped lang="scss">
@@ -40,8 +39,8 @@ const { text, colorGray = false, active = false, cross = false } = defineProps<P
   text-align: center;
   justify-content: center;
   align-items: center;
-  gap: 4px;
-  padding: 0 4px;
+  gap: 6px;
+  padding: 0 5px;
   margin-left: 0;
   font-weight: 400;
   font-size: 14px;
@@ -84,8 +83,8 @@ const { text, colorGray = false, active = false, cross = false } = defineProps<P
 
   &__icon {
     display: inline-block;
-    width: 8px;
-    height: 10px;
+    width: 12px;
+    height: 12px;
   }
 }
 </style>

@@ -7,11 +7,12 @@
           <CTagButton
             v-for="(size, i) in sizes"
             :key="i"
-            :text="size"
             :active="selectedSizes.includes(size)"
             colorGray
             @click="select('bySize', size)"
-          />
+          >
+            {{ size }}
+          </CTagButton>
         </div>
       </li>
       <li class="c-popup__item">
@@ -39,12 +40,9 @@
         </div>
       </li>
       <li class="c-popup__item u-flex u-align-end">
-        <CButtonHeader
-          name="Apply"
-          class="u-align-end"
-          @on-click="applyFiltres"
-          hide-icon
-        />
+        <CButtonHeader class="u-align-end" @on-click="applyFiltres" hide-icon>
+          Apply
+        </CButtonHeader>
       </li>
     </ul>
   </div>
@@ -68,9 +66,10 @@ const seasons = ['winter', 'summer'];
 
 const selectedSizes = computed(() => store.state.bySize);
 const selectedSeasons = computed(() => store.state.bySeason);
+const priceRange = computed(() => store.state.byPrice);
 
-const min = ref(250);
-const max = ref(2000);
+const min = ref(priceRange.value[0] || 250);
+const max = ref(priceRange.value[1] || 2000);
 const key = computed(() => min.value + max.value);
 
 const setRange = (newRange: number[]) => {

@@ -2,21 +2,21 @@
   <div ref="sortRef" class="c-popup">
     <ul>
       <li
-        @click="setSotting('Newest')"
+        @click="setSorting('Newest')"
         class="c-popup__item"
         :class="{ active: isActive('Newest') }"
       >
         Newest
       </li>
       <li
-        @click="setSotting('A-Z')"
+        @click="setSorting('A-Z')"
         class="c-popup__item"
         :class="{ active: isActive('A-Z') }"
       >
         A-Z
       </li>
       <li
-        @click="setSotting('Z-A')"
+        @click="setSorting('Z-A')"
         class="c-popup__item"
         :class="{ active: isActive('Z-A') }"
       >
@@ -42,7 +42,7 @@ const sortRef = ref(null);
 
 const closePopup = () => emit('close');
 
-const setSotting = (sortBy: string) => {
+const setSorting = (sortBy: string) => {
   store.dispatch('SET_ORDERING', sortBy);
   closePopup();
 };

@@ -35,6 +35,11 @@ a {
   color: $white;
 }
 
+a {
+  text-decoration: none;
+  display: block;
+}
+
 header,
 section,
 footer {

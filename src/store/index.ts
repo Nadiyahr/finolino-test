@@ -30,14 +30,14 @@ export default createStore<State>({
 
     APPLY__FILTERS: function ({commit}) {
       commit('SET_APPLAY')
-      commit('SORT_GOODS', this.state.sortedGoods)
+      commit('SORT_GOODS')
     }
   },
   mutations: {
     SET_ORDERING(state, payload) {
       state.ordering = payload
     },
-    SORT_GOODS(state, payload) {
+    SORT_GOODS(state, payload = state.sortedGoods) {
       const clone = [...payload]
       const order = state.ordering
 

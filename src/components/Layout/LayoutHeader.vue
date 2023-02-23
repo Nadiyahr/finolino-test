@@ -3,8 +3,8 @@
     <nav class="c-header__nav">
       <div class="c-header__container">
         <div v-if="!isMobile" class="c-header__buttons">
-          <CButtonHeader name="Man" />
-          <CButtonHeader name="Woman" />
+          <CButtonHeader>Man</CButtonHeader>
+          <CButtonHeader>Woman</CButtonHeader>
         </div>
         <div class="c-header__logo">
           <CLogo />

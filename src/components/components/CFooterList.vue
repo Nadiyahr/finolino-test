@@ -1,9 +1,11 @@
 <template>
   <div class="c-fotter-list u-text">
     <h6 class="c-fotter-list__title">{{ title }}</h6>
-    <ul class="">
-      <li v-for="(item, i) in list" :key="i" class="c-fotter-list__item">{{ item }}</li>
-    </ul>
+    <div>
+      <RouterLink to="/" v-for="(item, i) in list" :key="i" class="c-fotter-list__item">{{
+        item
+      }}</RouterLink>
+    </div>
   </div>
 </template>
 

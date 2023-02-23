@@ -3,11 +3,9 @@
     <div>
       <div class="c-top-container">
         <h1 class="c-m-h1">New<br />collection</h1>
-        <CButtonRouned
-          text="Go to catalog"
-          additional-class="top"
-          @action="$router.push('/woman/clothing/dresses')"
-        />
+        <CButtonRouned to="/woman/clothing/dresses" additional-class="top">
+          Go to catalog
+        </CButtonRouned>
       </div>
     </div>
   </section>

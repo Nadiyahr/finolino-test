@@ -5,9 +5,10 @@
         v-for="(item, i) in path"
         :key="i"
         to="/"
-        class="u-color-info u-capitalizze u-no-decor"
+        class="u-color-info u-capitalizze u-no-decor u-inline-block"
       >
-        {{ item }} <span v-if="i !== path.length - 1" class="u-color-info"> > </span>
+        {{ item }}
+        <span v-if="i !== path.length - 1" class="u-color-info u-px-4">></span>
       </RouterLink>
     </div>
     <div class="c-portal">
@@ -23,25 +24,26 @@
           >
             <CTagButton
               v-for="(tag, i) in tags"
-              :text="tag"
               :key="i"
               colorGray
               cross
               @on-click="deleteTag(idx, tag)"
-            />
+            >
+              {{ tag }}
+            </CTagButton>
           </div>
         </div>
         <div class="c-btn-group u-pt-10 u-md-pt-0">
           <div class="c-btn-group__container">
-            <CButtonHeader name="filters" width="100px" @on-click="openFilterPopup" />
+            <CButtonHeader width="100px" @on-click="openFilterPopup"
+              >filters</CButtonHeader
+            >
             <PopupFilter v-if="isFilterOpen" @close="isFilterOpen = !isFilterOpen" />
           </div>
           <div class="c-btn-group__container">
-            <CButtonHeader
-              :name="sortBy"
-              width="100px"
-              @on-click="isNevestOpen = !isNevestOpen"
-            />
+            <CButtonHeader width="100px" @on-click="isNevestOpen = !isNevestOpen">
+              {{ sortBy }}
+            </CButtonHeader>
             <PopupNewest v-if="isNevestOpen" @close="isNevestOpen = !isNevestOpen" />
           </div>
         </div>
@@ -115,9 +117,15 @@ onMounted(() => {
 
 <style lang="scss">
 .c-btn-group {
+  width: 100vw;
   display: flex;
-  justify-content: space-between;
+  justify-content: end;
   gap: 16px;
+
+  @include onDesktop {
+    width: fit-content;
+    justify-content: space-between;
+  }
 
   &__container {
     position: relative;

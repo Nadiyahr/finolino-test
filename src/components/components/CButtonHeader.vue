@@ -5,7 +5,7 @@
     :class="buttonClass"
     :style="{ width: width }"
   >
-    {{ name }}
+    <slot />
     <CIcon
       v-if="!hideIcon"
       id="chevron-down"
@@ -21,18 +21,12 @@ import { computed } from 'vue';
 import CIcon from '@/components/components/CIcon.vue';
 
 interface Props {
-  name: string;
   isMenu?: boolean;
   width?: string;
   hideIcon?: boolean;
 }
 
-const {
-  name,
-  isMenu = false,
-  width = 'fit-content',
-  hideIcon = false,
-} = defineProps<Props>();
+const { isMenu = false, width = 'fit-content', hideIcon = false } = defineProps<Props>();
 
 const buttonClass = computed(() =>
   isMenu ? 'c-button-select--menu' : 'c-button-select--common'
@@ -70,11 +64,12 @@ const buttonClass = computed(() =>
   &--common {
     min-width: fit-content;
     display: flex;
+    justify-content: space-between;
     text-align: center;
     align-items: center;
     font-size: $base-fs;
     line-height: $base-fs;
-    padding: 0 10px;
+    padding: 0 8px;
     line-height: 28px;
     background-image: unset;
   }

@@ -1,24 +1,21 @@
 <template>
-  <button
-    @click="$emit('action')"
-    :disabled="disabeled"
-    class="c-button-top"
-    :class="addClass"
-  >
-    {{ text }}
-  </button>
+  <RouterLink :to="to" :disabled="disabeled" class="u-w-100">
+    <button class="c-button-top" :class="addClass" :disabled="disabeled">
+      <slot />
+    </button>
+  </RouterLink>
 </template>
 
 <script setup lang="ts">
 import { computed } from 'vue';
 
 interface Props {
-  text: string;
+  to: string;
   additionalClass: string;
   disabeled?: boolean;
 }
 
-const { text, additionalClass, disabeled = false } = defineProps<Props>();
+const { to, additionalClass, disabeled = false } = defineProps<Props>();
 
 const addClass = computed(() => `c-button--${additionalClass}`);
 </script>

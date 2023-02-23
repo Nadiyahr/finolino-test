@@ -4,8 +4,8 @@
       <div class="c-mobile-menu__top">
         <CSearch />
         <div>
-          <CButtonHeader name="Man" is-menu hide-icon />
-          <CButtonHeader name="Woman" is-menu hide-icon />
+          <CButtonHeader is-menu hide-icon>Man</CButtonHeader>
+          <CButtonHeader is-menu hide-icon>Woman</CButtonHeader>
         </div>
       </div>
       <CFooterList title="Contacts" :list="contacts" class="c-mobile-menu__contacts" />

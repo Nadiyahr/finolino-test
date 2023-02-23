@@ -1,9 +1,9 @@
 <template>
   <div
     class="u-relative"
-    @mouseover="triger(true)"
-    @mouseleave="triger(false)"
-    @click.stop="triger(true)"
+    @mouseover="trigger(true)"
+    @mouseleave="trigger(false)"
+    @click.stop="trigger(true)"
   >
     <div ref="ignoreRef" class="c-card">
       <div class="u-h-75 u-overflow-hiden u-relative">
@@ -22,8 +22,8 @@
     <transition name="slide-fade">
       <div
         v-if="hover"
-        @mouseover="triger(true)"
-        @mouseleave="triger(false)"
+        @mouseover="trigger(true)"
+        @mouseleave="trigger(false)"
         ref="tagsRef"
         class="c-card__tags"
       >
@@ -33,7 +33,7 @@
           <span class="c-card__tag">{{ item.seasons.join(', ') }}</span>
         </p>
         <div class="u-flex u-gap-4 u-gap-md-6 u-pt-4">
-          <CTagButton v-for="(size, i) in item.sizes" :key="i" :text="size" />
+          <CTagButton v-for="(size, i) in item.sizes" :key="i">{{ size }}</CTagButton>
         </div>
       </div>
     </transition>
@@ -58,9 +58,9 @@ const hover = ref(false);
 const tagsRef = ref(null);
 const ignoreRef = ref(null);
 
-const triger = (bool: boolean) => (hover.value = bool);
+const trigger = (bool: boolean) => (hover.value = bool);
 
-onClickOutside(tagsRef, () => triger(false), { ignore: [ignoreRef] });
+onClickOutside(tagsRef, () => trigger(false), { ignore: [ignoreRef] });
 </script>
 
 <style lang="scss">
@@ -93,11 +93,11 @@ onClickOutside(tagsRef, () => triger(false), { ignore: [ignoreRef] });
     background-repeat: no-repeat, space round;
     background-position: center 0, center;
     background-size: cover, 90%;
-    transition: transform 0.5s ease-out;
+    transition: transform 0.3s ease-out;
 
     &--hover {
       transform: scale(1.1);
-      transition: transform 0.5s ease-out;
+      transition: transform 0.3s ease-out;
     }
   }
 
@@ -196,7 +196,7 @@ onClickOutside(tagsRef, () => triger(false), { ignore: [ignoreRef] });
     padding: 0 12px;
     line-height: 16px;
     background-color: $orange;
-    z-index: 99;
+    z-index: 49;
 
     @include moreThanTablet {
       font-size: 16px;
