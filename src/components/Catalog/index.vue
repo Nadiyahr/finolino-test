@@ -1,6 +1,6 @@
 <template>
-  <section class="c-bg-catalog u-pt-8">
-    <div class="c-portal">
+  <section class="c-bg-catalog">
+    <div class="c-portal u-pt-8">
       <RouterLink
         v-for="(item, i) in path"
         :key="i"
@@ -38,7 +38,11 @@
             <CButtonHeader :width="buttonWidth" @on-click="openFilterPopup"
               >filters</CButtonHeader
             >
-            <PopupFilter v-if="isFilterOpen" @close="isFilterOpen = !isFilterOpen" />
+            <PopupFilter
+              v-if="isFilterOpen"
+              @apply="applyFilter"
+              @close="isFilterOpen = !isFilterOpen"
+            />
           </div>
           <div class="c-btn-group__container">
             <CButtonHeader :width="buttonWidth" @on-click="isNevestOpen = !isNevestOpen">
@@ -49,14 +53,14 @@
         </div>
       </div>
     </div>
-    <div class="c-card-container">
+    <CGridContainer all-screans>
       <CardComponent
         v-for="card in filtredGoods"
         :key="card.id"
         :item="card"
         class="c-card-container__card"
       />
-    </div>
+    </CGridContainer>
   </section>
 </template>
 
@@ -65,12 +69,14 @@ import { Good } from '@/vite-env';
 import { ref, watch, onMounted, computed } from 'vue';
 import { useRoute } from 'vue-router';
 import { useStore } from 'vuex';
+import goods from '@/api/finolino_dresses.json';
 import breakpoints from '@/plugins/breakpoints';
 import CardComponent from '@/components/components/CardComponent.vue';
 import CButtonHeader from '@/components/components/CButtonHeader.vue';
 import PopupNewest from '@/components/popUps/PopupNewest.vue';
 import PopupFilter from '@/components/popUps/PopupFilter.vue';
 import CTagButton from '../components/CTagButton.vue';
+import CGridContainer from '../components/CGridContainer.vue';
 
 const route = useRoute();
 const store = useStore();
@@ -84,7 +90,7 @@ const buttonWidth = computed(() => (isMobile ? '80px' : '100px'));
 let sortBy = ref(store.state.ordering);
 let filtredGoods = ref<Good[]>([]);
 
-const path = route.fullPath.split('/').slice(1);
+const path = [...route.fullPath.split('/')];
 const title = path[2];
 
 const openFilterPopup = () => {
@@ -96,7 +102,11 @@ const deleteTag = (type: string | number, value: string | string[]) => {
     value = [];
   }
   store.commit('SET_FILTER_GOODS', { type, value });
-  store.dispatch('APPLY__FILTERS');
+  store.dispatch('APPLY_FILTERS', goods);
+};
+
+const applyFilter = () => {
+  store.dispatch('APPLY_FILTERS', goods);
 };
 
 watch(
@@ -113,7 +123,7 @@ watch(
 );
 
 onMounted(() => {
-  store.commit('SORT_GOODS', store.state.goods);
+  store.commit('SORT_GOODS', goods);
   filtredGoods.value = store.state.sortedGoods;
 });
 </script>
@@ -136,31 +146,14 @@ onMounted(() => {
     height: fit-content;
   }
 }
-.c-card-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  gap: 10px;
-  padding: 20px 0 120px;
-
-  @include moreThanTablet {
-    gap: 20px;
-  }
-
-  &__card {
-    flex: 0 1 calc(25% - 1em);
-  }
-}
 
 .c-bg-catalog {
+  min-height: 100vh;
+  padding-bottom: 20px;
   background-color: $gray;
 
   @include moreThanTablet {
     @include bg-img;
   }
-}
-
-.c-portal {
-  position: relative;
 }
 </style>

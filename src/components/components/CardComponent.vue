@@ -3,7 +3,7 @@
     class="u-relative"
     @mouseover="trigger(true)"
     @mouseleave="trigger(false)"
-    @click.stop="trigger(true)"
+    @click.stop="triggerClick()"
   >
     <div ref="ignoreRef" class="c-card">
       <div class="u-h-75 u-overflow-hiden u-relative">
@@ -58,6 +58,8 @@ const hover = ref(false);
 const tagsRef = ref(null);
 const ignoreRef = ref(null);
 
+const triggerClick = () => (hover.value = !hover.value);
+
 const trigger = (bool: boolean) => (hover.value = bool);
 
 onClickOutside(tagsRef, () => trigger(false), { ignore: [ignoreRef] });
@@ -66,7 +68,6 @@ onClickOutside(tagsRef, () => trigger(false), { ignore: [ignoreRef] });
 <style lang="scss">
 .c-card {
   position: relative;
-  min-width: 135px;
   height: 260px;
   background-color: #fff;
   border-top-left-radius: 20px;
@@ -114,12 +115,13 @@ onClickOutside(tagsRef, () => trigger(false), { ignore: [ignoreRef] });
 
   &__tags {
     position: absolute;
-    bottom: -26%;
-    left: 0;
     width: 100%;
+    top: 99%;
+    left: 0;
     opacity: 1;
     text-align: start;
     padding: 8px;
+    padding-top: 0;
     opacity: 1;
     background-color: #fff;
     z-index: 100;
@@ -127,14 +129,7 @@ onClickOutside(tagsRef, () => trigger(false), { ignore: [ignoreRef] });
 
     @include moreThanTablet {
       padding: 16px;
-    }
-
-    @include onTablet {
-      bottom: -22%;
-    }
-
-    @include onDesktop {
-      bottom: -18%;
+      padding-top: 0;
     }
   }
 

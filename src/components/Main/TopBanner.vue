@@ -1,12 +1,10 @@
 <template>
   <section class="c-bg-img-combine">
-    <div>
-      <div class="c-top-container">
-        <h1 class="c-m-h1">New<br />collection</h1>
-        <CButtonRouned to="/woman/clothing/dresses" additional-class="top">
-          Go to catalog
-        </CButtonRouned>
-      </div>
+    <div class="c-top-container">
+      <h1 class="c-m-h1">New<br />collection</h1>
+      <CButtonRouned to="/woman/clothing/dresses" additional-class="top">
+        Go to catalog
+      </CButtonRouned>
     </div>
   </section>
 </template>
@@ -33,15 +31,11 @@ import CButtonRouned from '../components/CButtonRouned.vue';
 
 .c-bg-img-combine {
   width: 100vw;
-  height: 90vh;
-  min-height: 100vw;
+  height: 93vh;
+  max-height: 100vh;
   @include bg-top-banner;
 
-  @include onTablet {
-    height: 95vh;
-  }
-
-  @include onDesktop {
+  @include moreThanTablet {
     height: 100vh;
   }
 }

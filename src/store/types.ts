@@ -1,7 +1,6 @@
 import { Good } from '@/vite-env'
 
 export interface State {
-  goods: Good[],
   sortedGoods: Good[],
   filterTags: FilterTags,
   ordering: Order,

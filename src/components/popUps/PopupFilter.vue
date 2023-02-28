@@ -59,7 +59,7 @@ import CRangeInput from '../components/CRangeInput.vue';
 import { Filters } from '@/store/types';
 
 const store = useStore();
-const emit = defineEmits(['close']);
+const emit = defineEmits(['close', 'apply']);
 
 const sizes = ['XXS', 'XS', 'S', 'M', 'L', 'XL', 'XXL', '3XL'];
 const seasons = ['winter', 'summer'];
@@ -92,7 +92,7 @@ const popupRef = ref(null);
 const closePopup = () => emit('close');
 
 const applyFiltres = () => {
-  store.dispatch('APPLY__FILTERS');
+  emit('apply');
   closePopup();
 };
 
