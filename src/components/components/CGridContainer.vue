@@ -25,6 +25,7 @@ const { mobileDesk = false, allScreans = false } = defineProps<Props>();
   padding: 16px 0;
   grid-template-columns: repeat(2, minmax(135px, 200px));
   gap: 12px;
+  justify-content: space-evenly;
 
   &--mobile-desk {
     @include moreThanTablet {

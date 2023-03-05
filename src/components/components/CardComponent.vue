@@ -80,7 +80,7 @@ onClickOutside(tagsRef, () => trigger(false), { ignore: [ignoreRef] });
   }
 
   @include onTablet {
-    height: 300px;
+    height: 320px;
   }
 
   @include onDesktop {
